@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <title>登入</title>
+    <!-- 引入ico图标 -->
+    <link rel="shortcut icon" href="font1/1favicon.ico" />
+    <!-- 引入初始化样式文件 -->
+    <link rel="stylesheet" href="CSS/base.css">
+    <!-- 引入注册页样式 -->
+    <link rel="stylesheet" href="CSS/login.css">
+</head>
+
+<body>
+
+    <div class="w">
+        <!-- 头部区域 -->
+        <header>
+            <div class="logo">
+                <img src="image/logo2.png" alt="">
+                <ul class="homepage">
+                    <li><a href="/index">首页</a></li>
+                </ul>
+            </div>
+
+        </header>
+
+        <!-- 主体区域 -->
+        <div class="loginarea">
+            <!-- 1.h3 -->
+            <h3>登录账号
+                <div class="reg"><a href="/logon">注册</a>一个新账号！</div>
+            </h3>
+            <!-- 2.feg-form -->
+            <div class="login-form">
+                <form action="/toLogin" method="post">
+                    <ul>
+                        <li><label for="tel1">手机号：</label><input type="text" th:value="${tel}" required class="shuru" id="tel1" name="tel"
+                                style="outline:none" onblur="find()"><span id="no" style="color: red"></span></li>
+
+                        <li><label for="tel3">登录密码：</label><input type="password" required class="shuru" id="tel3" name="password"
+                                                                  style="outline:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${no}" style="color: red"></span></span></li>
+<!--                        <li style="text-align: center">记住密码<input  type="checkbox" name="remember-me" value="true"></li>-->
+                        <li><input type="submit"  class="loginbtn" style="outline:none" value="登  录"></li>
+                    </ul>
+                </form>
+
+            </div>
+        </div>
+        <!-- 底部区域 -->
+        <div class="footer">
+            <p class="links">关于我们 | 联系我们 | 联系客服 | 发起者入驻 | 创业资讯 | 培训指导</p>
+            <p class="copyright">地址：福建省莆田市莆田学院 邮编：351100 电话：400-400-4000 传真：010-8500000 邮箱: ptu.cn</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function find(){
+        const a = $("#tel1").val();
+        if(a=="")
+        {
+            $("#no").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号不能为空");
+        }else {
+            $.ajax({
+                url:"/find",
+                type:"post",
+                data:{"tel":a},
+                success:function (data) {
+                    if (data.toString()=="no"){
+                        // const b = "<p>用户名不存在</p>";
+                        $("#no").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号未注册");
+                        //alert(b);
+                        // $("#no").innerText("用户名不存在");
+                    }else{
+                        $("#no").html("");
+                    }
+                }
+            });}
+    }
+</script>
+</html>

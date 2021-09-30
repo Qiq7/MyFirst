@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改资料</title>
+    <link rel="stylesheet" type="text/css" href="CSS/头部和底部.css">
+    <link rel="stylesheet" type="text/css" href="CSS/修改资料.css">
+    <link rel="stylesheet" type="text/css" href="CSS/layui.css">
+    <link rel="stylesheet" type="text/css" href="CSS/laydate.css">
+    <script type="text/javascript" src="JS/laydate.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="JS/layui.js"></script>
+    <script type="text/javascript" src="JS/修改资料.js"></script>
+</head>
+<body>
+    <!--头部区域-->  
+    <div id="header">
+        <div class="header">
+            <div class="header-left">
+                <a href="#"><img src="image/1.jpg" alt="图片加载错误"></a>
+            </div>
+            <div class="header-bottom1">
+                <ul class="nav">
+                    <li><a href="/index0">首页</a></li>
+                    <li>
+                        <a href="#">我要创业</a>
+                        <div class="down">
+                            <div class="list">
+                                <a href="/publish">发布项目</a>
+                            </div>
+                            <div class="list">
+                                <a href="/searchIterm">寻找项目</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="/searchResume">寻找道友</a></li>
+                    <li><a href="/personal">项目管理</a></li>
+                    <li><a href="#">创业资讯</a></li>
+                    <li><a href="#">论坛</a></li>
+                </ul>
+            </div>
+            <div class="header-bottom2">
+                <form action="" method="" class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-input-inline">
+                            <input id="search" type="search" name="search" class="layui-input" placeholder="请输入关键字">
+                        </div>         
+                        <button id="btn-search" type="button" class="layui-btn layui-btn-primary layui-btn-radius">
+                            <i class="layui-icon layui-icon-search" style="font-size: 23px; "></i>        
+                        </button>               
+                    </div>
+                </form>
+            </div>
+            <div class="header-right">
+                <div class="header-right-l">
+                    <img th:src="${user.getPicWay()}" class="layui-circle" width="50px">
+                </div>
+                <div class="header-right-r">
+                    <!-- 在没有登入状态下的显示 -->
+                    <!-- <ul class="load">
+                        <li><a href="#">登录</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="#">注册</a></li>
+                    </ul> -->
+                    <ul class="load">
+                        <li><a href="/personal">个人中心</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--修改资料-->
+    <div id="correct">
+<!--        <form action="" method="post" enctype="multipart/form-data">-->
+        <div class="correct">
+            <div class="layui-panel">
+                <form class="layui-form" action="/save0" method="post" enctype="multipart/form-data">
+                <div class="caption">
+                    <h1>修改资料</h1>
+                </div>
+                <div class="picture">
+                    <img th:src="${user.getPicWay()}" alt="图片加载错误">
+                </div>
+                <div class="button1">
+                        <input type="file" name="tp">
+                        <span style="align-content: center;color: red" th:text="${tp}"></span>
+<!--                    <button type="button" class="layui-btn layui-btn-lg"><p>上传图片</p></button>-->
+                </div>
+<!--                <form class="layui-form" action="" method="">-->
+                    <div class="name">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-inline">
+                              <input th:value="${user.getRealName()}" type="text" name="name" pattern="^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$" title="7个汉字或14个字符" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-name">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">用户名</label>
+                            <div class="layui-input-inline">
+                              <input th:value="${user.getUsername()}" type="text" name="username" pattern="^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$" required title="7个汉字或14个字符" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">电话</label>
+                            <div class="layui-input-inline">
+                              <input th:value="${user.getTel()}" type="tel" name="phone" pattern="^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$" title="只能包含11个数字" required  lay-verify="required" placeholder="请输入电话" autocomplete="off" class="layui-input">
+                                <span style="color: red" th:text="${t}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="date">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">生日</label>
+                            <div class="layui-input-inline">
+                              <input th:value="${user.isBdate()}?${user.getBirthdate()}:${user.getShowDate()}" type="text" id="time" name="date" required  lay-verify="required" placeholder="请输入出生年月" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">地址</label>
+                            <div class="layui-input-inline">
+                                <select name="address" lay-verify="" >
+<!--                                    <option value="">请选择一个省份</option>-->
+                                    <option th:text="${user.getAddr()}"></option>
+                                    <option value="福建省">福建省</option>
+                                    <option value="安徽省">安徽省</option>
+                                    <option value="浙江省">浙江省</option>
+                                    <option value="河北省">河北省</option>
+                                    <option value="广东省">广东省</option>
+                                    <option value="湖北省">湖北省</option>
+                                  </select> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">邮箱</label>
+                            <div class="layui-input-inline">
+                              <input th:value="${user.getEmail()}" type="email" name="email" pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$" title="包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password1">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                            <div class="layui-input-inline">
+                              <input th:value="${user.password}" type="password" name="password1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$" required title="包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password2">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">确认密码</label>
+                            <div class="layui-input-inline">
+                              <input th:value="${user.getPassword()}" type="password" name="password2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$" required  lay-verify="required" placeholder="确认密码" autocomplete="off" class="layui-input">
+                                <span style="color: red" th:text="${p}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button2">
+                        <button type="submit" class="layui-btn"><p>确认保存</p></button>
+                    </div>
+                </form>               
+            </div>
+        </div>
+<!--        </form>-->
+    </div>
+    <!--页面底部-->
+    <div id="footer">
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-top-left">
+                    <img src="image/11.jpg" alt="图片加载错误">
+                    <p>
+                        志同道合网是一个为了，族起她风今，越4伶报镰。 然酸问面明路最接数世真，
+                        意务这成容才还同命，往维C极算须把如扮。 己需构参亲书争民存间明局号
+                        ，如置族看华A把第雪低。我型才制很斯两。
+                    </p>
+                </div>
+                <div class="footer-top-center">
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-top-right">
+                    <img src="image/12.jpg" alt="图片加载错误">
+                    <div>微信咨询</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                地址：福建省莆田市莆田学院 &nbsp 邮编：351100 &nbsp 电话：
+                400-400-4000 &nbsp 传真：010-8500000 &nbsp 邮箱: ptu.cn
+            </div>
+        </div>
+    </div>
+</body>
+</html>

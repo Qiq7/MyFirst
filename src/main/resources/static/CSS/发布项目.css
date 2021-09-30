@@ -1,0 +1,46 @@
+#section {
+    width: 100%;
+    background-color: #f6f6f6;
+    height: 1400px;
+}
+.section {
+    width: 1100px;
+    margin: 0 auto;
+}
+.layui-panel {
+    height: 1300px;
+    width: 900px;
+    top: 20px;
+    margin: 0 auto;
+}
+.layui-panel h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.layui-panel .layui-form input{
+    margin-bottom: 15px;
+}
+.layui-panel .layui-form label{
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+.layui-panel .layui-form button{
+    margin-bottom: 15px;
+}
+.layui-panel .layui-form textarea{
+    margin-bottom: 15px;
+}
+#btn2 {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+#btn3 {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+#btn4 {
+    margin-top: 20px;
+    margin-left: 80px;
+}

@@ -1,0 +1,112 @@
+<!--<!DOCTYPE html>-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <!DOCTYPE html>
+    <html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>首页</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </head>
+<body>
+<!--头部区域-->
+<div class="header">
+    <a href="#" class="logo"><img src="image/1.jpg" alt="LOGO加载错误" width="200px" height="60px"></a>
+    <ul class="nav">
+        <li><a href="#">首页</a></li>
+        <li>
+            <a href="#">我要创业</a>
+            <div class="down">
+                <div class="list">
+                    <div class="box"></div>
+                    <p>发布项目</p>
+                </div>
+                <div class="list">
+                    <div class="box"></div>
+                    <p>寻找项目</p>
+                </div>
+            </div>
+        </li>
+        <li><a href="#">管理项目</a></li>
+        <li><a href="#">创业资讯</a></li>
+        <li><a href="#">论坛</a></li>
+        <li>
+            <form action="" method="GET">
+                <input type="search" name="searching">
+                <button class="search">搜索</button>
+            </form>
+        </li>
+    </ul>
+    <ul class="load">
+<!--        <li><a href="/login">登录</a></li>-->
+<!--        <li id="separator">&#124</li>-->
+<!--        <li><a href="/logon">注册</a></li>-->
+        <li><img id="tp" th:src="'headSculpture/'+${user}"  th:alt="${username}" width="60px" height="60px"></li>
+        <li><a href="/personal">个人中心</a></li>
+        <li id="separator">&#124</li>
+        <li><a href="/logout">退出</a></li>
+    </ul>
+</div>
+<!--轮播图-->
+<div class="box">
+    <div class="box-img"><img src="image/2.jpg" width="100%" height="640px" alt="图片加载错误"></div>
+    <div class="box-img"><img src="image/3.jpg" width="100%" height="640px" alt="图片加载错误"></div>
+    <div class="box-img"><img src="image/4.jpg" width="100%" height="640px" alt="图片加载错误"></div>
+    <div class="box-img"><img src="image/5.jpg" width="100%" height="640px" alt="图片加载错误"></div>
+    <div class="box-img"><img src="image/6.jpg" width="100%" height="640px" alt="图片加载错误"></div>
+    <div class="box-left">&lt;</div>
+    <div class="box-right">&gt;</div>
+    <div class="box-bottom">
+        <ul>
+            <li class="button"></li>
+            <li class="button"></li>
+            <li class="button"></li>
+            <li class="button"></li>
+            <li class="button"></li>
+        </ul>
+    </div>
+</div>
+<!--主要功能区域-->
+<div class="pro">
+    <div class="title">
+        <h3>精英团队&nbsp&nbsp&nbsp&nbsp挑战无限</h3>
+        <b></b>
+    </div>
+    <div class="section">
+        <ul class="pro-list1">
+            <li class="pro-item"><P>发布项目</P></li>
+            <li class="pro-item"><p>寻找项目</p></li>
+            <li class="pro-item"><p>我要投简</p></li>
+            <li class="pro-item"><p>敬请期待</p></li>
+        </ul>
+    </div>
+</div>
+<!--热门项目-->
+<div class="project">
+    <div class="project-item1"><h1>热门项目</h1></div>
+    <div class="project-item2">
+        <img src="image/11.jpg" alt="图片加载出错" width="250px" height="165px">
+        <img src="image/12.jpg" alt="图片加载出错" width="250px" height="165px">
+    </div>
+    <div class="project-item3"><img src="image/13.jpg" alt="图片加载出错" height="335px">
+    </div>
+</div>
+<!--热门简历-->
+<div class="resume">
+    <div class="resume-item1"><h1>热门简历</h1></div>
+    <div class="resume-item2">
+        <img src="image/8.jpg" alt="图片加载出错" width="250px" height="165px">
+        <img src="image/9.jpg" alt="图片加载出错" width="250px" height="165px">
+    </div>
+    <div class="resume-item3"><img src="image/10.jpg" alt="图片加载出错">
+    </div>
+</div>
+</body>
+</html>

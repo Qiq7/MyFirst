@@ -1,0 +1,338 @@
+#section {
+    width: 100%;
+    height: 1500px;
+    margin: 0 auto;
+    background-color: #f6f6f6;
+}
+.section {
+    height: 1500px;
+    width: 1400px;
+    margin: 0 auto;
+}
+/*第一块*/
+#panel1 {
+    margin-left: 7%;
+    margin-top: 20px;
+    position: absolute;
+    width: 830px;
+    height: 210px;
+}
+#panel1 .title{
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+#panel1 .title h2{
+    line-height: 40px;
+    font-weight:bold;
+    color: black;
+}
+#panel1 .type{
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    margin-left: 40px;
+    margin-top: 80px;
+}
+#panel1 .type p{
+    line-height: 30px;
+}
+#panel1 .type span{
+    margin-right: 20px;
+    color: #1e90ff;
+    padding: 3px 15px;
+    border: #1e90ff 1px solid;
+}
+#panel1 .location{
+    position: absolute;
+    width: 500px;
+    height: 30px;
+    margin-left: 40px;
+    margin-top: 150px;
+}
+#panel1 .location i{
+    line-height: 30px;
+}
+#panel1 .button{
+    position: absolute;
+    width: 170px;
+    height: 40px;
+    margin-left: 630px;
+    margin-top: 140px;
+}
+#panel1 .button button{
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/*第二块*/
+#panel2 {
+    margin-left: 7%;
+    margin-top: 245px;
+    position: absolute;
+    width: 830px;
+    height: 300px;
+}
+#panel2 .title{
+    height: 50px;
+    width: 300px;
+    position:absolute;
+    left:50%;
+    top: 15%;
+    transform:translate(-50%,-50%);
+}
+#panel2 .title h1{
+    line-height: 50px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+#panel2 .schedule{
+    height: 40px;
+    width: 250px;
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 100px;
+}
+#panel2 .schedule p{
+    font-size: 18px;
+    line-height: 40px;
+}
+#panel2 .schedule p span{
+    margin-left: 10px;
+    color: black;
+}
+#panel2 .time{
+    height: 40px;
+    width: 250px;
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 150px;
+}
+#panel2 .time p{
+    font-size: 18px;
+    line-height: 40px;
+}
+#panel2 .time p span{
+    margin-left: 10px;
+    color: black;
+}
+#panel2 .number{
+    height: 40px;
+    width: 250px;
+    position:absolute;
+    margin-left: 300px;
+    margin-top: 100px;
+}
+#panel2 .number p{
+    font-size: 18px;
+    line-height: 40px;
+}
+#panel2 .number p span{
+    margin-left: 10px;
+    color: black;
+}
+#panel2 .budget{
+    height: 40px;
+    width: 250px;
+    position:absolute;
+    margin-left: 300px;
+    margin-top: 150px;
+}
+#panel2 .budget p{
+    font-size: 18px;
+    line-height: 40px;
+}
+#panel2 .budget p span{
+    margin-left: 10px;
+    color: black;
+}
+#panel2 .technology{
+    height: 40px;
+    width: 780px;
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 200px;
+}
+#panel2 .technology p{
+    font-size: 18px;
+    line-height: 40px;
+}
+#panel2 .technology p span{
+    margin-left: 10px;
+    color: black;
+    margin-right: 20px;
+    color: #009688;
+    padding: 3px 15px;
+    border: #009688 1px solid;
+}
+/*第三块*/
+#panel3 {
+    margin-left: 7%;
+    margin-top: 570px;
+    position: absolute;
+    width: 830px;
+    height: 900px;
+}
+#panel3 .title1{
+    height: 50px;
+    width: 300px;
+    position:absolute;
+    margin-left: 265px;
+    margin-top: 25px;
+}
+#panel3 .title1 h1{
+    line-height: 50px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+#panel3 .title2{
+    height: 40px;
+    width: 150px;
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 100px;
+}
+#panel3 .title2 h2{
+    line-height: 40px;
+    color: black;
+    font-weight: bold;
+}
+#panel3 .introduce{
+    height: 550px;
+    width: 746px;
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 160px;
+    /*overflow-y: scroll;*/
+    overflow-y: auto;
+}
+#panel3 .introduce p{
+    line-height: 30px;
+    text-align: justify;
+    text-indent: 32px;
+    font-size: 17px;
+}
+#panel3 .title3{
+    height: 40px;
+    width: 150px;
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 730px;
+}
+#panel3 .title3 h2{
+    line-height: 40px;
+    color: black;
+    font-weight: bold;
+}
+#panel3 .adjunct{
+    height: 40px;
+    width: 200px;
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 790px;
+}
+#panel3 .adjunct{
+    line-height: 40px;
+    font-size: 17px;
+    color: #1e90ff;
+}
+#panel3 .download p {    
+    position:absolute;
+    padding: 5px 20px;
+    margin-left: 675px;
+    margin-top: 790px;
+    font-size: 18px;
+    color: #1e90ff;
+    border: 1px #1e90ff solid;
+}
+#panel3 .download p:hover{    
+    background-color: #1e90ff;
+    color: aliceblue;
+    cursor: default;
+}
+/*第四块*/
+#panel4 {
+    margin-left: 970px;
+    margin-top: 15px;
+    position: absolute;
+    width: 340px;
+    height: 360px;
+}
+#panel4 .picture{
+    height: 150px;
+    width: 150px;
+    margin-left: 95px;
+    margin-top: 30px;
+    position: absolute;
+}
+#panel4 .picture img{
+    height: 150px;
+    width: 150px;
+}
+#panel4 .name{
+    height: 40px;
+    width: 150px;
+    margin-left: 95px;
+    margin-top: 185px;
+    position: absolute;
+}
+#panel4 .name p{
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+}
+#panel4 .name p span:first-child{
+    font-weight: bold;
+    color: black;
+}    
+#panel4 .name p span + span{
+    padding-left: 10px;
+
+} 
+#panel4 .button{
+    height: 40px;
+    width: 150px;
+    margin-left: 95px;
+    margin-top: 225px;
+    position: absolute;
+}
+#panel4 .button button{
+    height: 40px;
+    width: 150px;
+    font-size: 17px;
+}
+#panel4 .phone{
+    height: 40px;
+    width: 200px;
+    margin-left: 78px;
+    margin-top: 280px;
+    position: absolute;
+}
+#panel4 .phone p{
+    font-size: 17px;
+    line-height: 40px;
+    text-align: center;
+}
+#panel4 .phone span{
+    margin-left: 10px;
+}
+#panel4 .email{
+    height: 40px;
+    width: 250px;
+    margin-left: 50px;
+    margin-top: 310px;
+    position: absolute;
+}
+#panel4 .email p{
+    font-size: 17px;
+    line-height: 40px;
+    text-align: center;
+}
+#panel4 .email span{
+    margin-left: 10px;
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="CSS/头部和底部.css">
+    <link rel="stylesheet" type="text/css" href="CSS/首页.css">
+    <link rel="stylesheet" type="text/css" href="CSS/layui.css">
+    <script type="text/javascript" src="JS/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="JS/首页.js"></script>
+    <script type="text/javascript" src="JS/layui.js"></script>
+</head>
+<body>
+    <!--头部区域-->  
+    <div id="header">
+        <div class="header">
+            <div class="header-left">
+                <a href="#"><img src="image/1.jpg" alt="图片加载错误"></a>
+            </div>
+            <div class="header-bottom1">
+                <ul class="nav">
+                    <li><a href="#">首页</a></li>
+                    <li>
+                        <a href="#">我要创业</a>
+                        <div class="down">
+                            <div class="list">
+                                <a href="#">发布项目</a>
+                            </div>
+                            <div class="list">
+                                <a href="#">寻找项目</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">寻找道友</a></li>
+                    <li><a href="#">项目管理</a></li>
+                    <li><a href="#">创业资讯</a></li>
+                    <li><a href="#">论坛</a></li>
+                </ul>
+            </div>
+            <div class="header-bottom2">
+                <form action="" method="" class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-input-inline">
+                            <input id="search" type="text" name="search" class="layui-input" placeholder="请输入关键字">
+                        </div>         
+                        <button id="btn-search" type="button" class="layui-btn layui-btn-primary layui-btn-radius">
+                            <i class="layui-icon layui-icon-search" style="font-size: 23px; "></i>        
+                        </button>               
+                    </div>
+                </form>
+            </div>
+            <div class="header-right">
+<!--                <div class="header-right-l">-->
+<!--                    <img src="image/13.jpg" class="layui-circle" width="50px">-->
+<!--                </div>-->
+<!--                <span sec:authentication="authorities"></span>-->
+                <div class="header-right-r">
+                    <!-- 在没有登入状态下的显示 -->
+                    <ul class="load">
+                        <li><a href="/login">登录</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="/logon">注册</a></li>
+                    </ul>
+<!--                    <ul class="load">-->
+<!--                        <li><a href="#">个人中心</a></li>-->
+<!--                        <li id="separator">&#124</li>-->
+<!--                        <li><a href="#">退出</a></li>-->
+<!--                    </ul>-->
+                </div>
+            </div>
+        </div>
+    </div>  
+    <!--轮播图-->
+    <div class="box">
+        <div class="box-img"><img src="image/2.jpg" width="100%" height="700px" alt="图片加载错误"></div>
+        <div class="box-img"><img src="image/3.jpg" width="100%" height="700px" alt="图片加载错误"></div>
+        <div class="box-img"><img src="image/4.jpg" width="100%" height="700px" alt="图片加载错误"></div>
+        <div class="box-img"><img src="image/5.jpg" width="100%" height="700px" alt="图片加载错误"></div>
+        <div class="box-img"><img src="image/6.jpg" width="100%" height="700px" alt="图片加载错误"></div>
+        <div class="box-left">&lt;</div>
+        <div class="box-right">&gt;</div>
+        <div class="box-bottom">
+            <ul>
+                <li class="button"></li>
+                <li class="button"></li>
+                <li class="button"></li>
+                <li class="button"></li>
+                <li class="button"></li>
+            </ul>
+        </div>
+    </div>
+    <!--主要功能部分-->
+    <div id="section">
+        <div class="section">
+            <div class="title">
+                <h3>精英团队&nbsp&nbsp&nbsp&nbsp挑战无限</h3>
+            </div>
+            
+            <div class="section-box">
+                <div class="section-box1">
+                    <i class="layui-icon layui-icon-release"></i>
+                    <a href="#"><h1>发布项目</h1></a>
+                </div>
+                <div class="section-box2">
+                    <i class="layui-icon layui-icon-template-1"></i>
+                    <a href="#"><h1>寻找项目</h1></a>
+                </div>
+                <div class="section-box3">
+                    <i  class="layui-icon layui-icon-form"></i>
+                    <a href="#"><h1>寻找人才</h1></a>
+                </div>
+                <div class="section-box4">
+                    <i class="layui-icon layui-icon-list"></i>
+                    <a><h1>敬请期待</h1></a>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+    <!--热门项目区域-->
+    <div id="project">
+        <div class="project">
+            <div class="title">
+                <h3>
+                    <i class="layui-icon layui-icon-fire" style="font-size: 30px;"></i>
+                    热门项目
+                    <i class="layui-icon layui-icon-fire" style="font-size: 30px;"></i>
+                </h3>
+            </div>
+            <div class="project-box1">
+                <div class="picture">
+                    <img src="image/7.jpg" alt="图片加载错误">
+                </div>
+                <div class="caption">
+                    <h2>定制智能网关</h2>
+                </div>
+                <div class="type">
+                    <p style="color: #6495ed;">物联网</p>
+                </div>
+                <div class="description">
+                    <p>
+                        智能网关是集网关、路由、网路管理等多项功能于一体，支持WIFI和Zig
+                        bee两种通讯模式的智能主机，并以此和其它智能产品实现联动，实现智能
+                        产品的远程控制。 方便用户使用各种移动智能终端，轻松控制相关设备，
+                        无线数据高速、安全、可靠传输,并且可实现以太网的互通互联。
+                    </p>
+                </div>
+            </div>
+            <div class="project-box2">
+                <div class="picture">
+                    <img src="image/8.jpg" alt="图片加载错误">
+                </div>
+                <div class="caption">
+                    <h2>智慧消防云管理平台</h2>
+                </div>
+                <div class="type">
+                    <p style="color: #6495ed;">物联网</p>
+                </div>
+                <div class="description">
+                    <p>
+                        这是一款SaaS化的智慧消防平台，实现各类传感器实时监测预警、
+                        智能巡检等功能，可以在火警初期快速发出提醒，及早的发现并解
+                        决各种安全隐患
+                    </p>
+                </div>
+            </div>
+            <div class="project-box3">
+                <div class="picture">
+                    <img src="image/9.jpg" alt="图片加载错误">
+                </div>
+                <div class="caption">
+                    <h2>UI/VI高端定制设计</h2>
+                </div>
+                <div class="type">
+                    <p style="color: #6495ed;">UI设计</p>
+                </div>
+                <div class="description">
+                    <p>
+                        大庆运盛网络服务是国内领先的企业全网营销解决方案供应商，致力
+                        于用高品质的一站式服务，传统企业互联网+转型的大量人力成本、时
+                        间成本和经济成本，让科技，更简单。
+                    </p>
+                </div>
+            </div>
+            <div class="project-box4">
+                <div class="picture">
+                    <img src="image/10.jpg" alt="图片加载错误">
+                </div>
+                <div class="caption">
+                    <h2>扬尘监控平台</h2>
+                </div>
+                <div class="type">
+                    <p style="color: #6495ed;">数据采集与分析</p>
+                </div>
+                <div class="description">
+                    <p>
+                        专业从事音视频编解码及网络流媒体传输。NVR,IPTV,监控系统解决方案。
+                        各种播放器方案(典型案例就是具有400w用户量的人人影视播放器方案)，
+                        屏幕录制方案，局域网同屏
+                    </p>
+                </div>
+            </div>
+            <div class="project-box5">
+                <div class="picture">
+                    <img src="image/14.jpg" alt="图片加载错误">
+                </div>
+                <div class="caption">
+                    <h2>EPM施工项目</h2>
+                </div>
+                <div class="type">
+                    <p style="color: #6495ed;">管理系统</p>
+                </div>
+                <div class="description">
+                    <p>
+                        六业科技 (www.liuyesoft.com.cn)是一家集软件产品研发、软件咨
+                        询、软件服务外包、系统整合为一体的企业信息化整体解决方案供应
+                        商。成立十多年来，六业科技一直秉承
+                    </p>
+                </div>
+            </div>
+            <div class="project-box6">
+                <div class="picture">
+                    <img src="image/15.jpg" alt="图片加载错误">
+                </div>
+                <div class="caption">
+                    <h2>公众号、小程序开发</h2>
+                </div>
+                <div class="type">
+                    <p style="color: #6495ed;">微信开发</p>
+                </div>
+                <div class="description">
+                    <p>
+                        开发经验十年以上，目前带领团队 成立公司接项目。 成功案例
+                        很多，希望能精诚合作~ 电话：0531-76111386 18763432241 
+                        QQ：840500737
+                    </p>
+                </div>
+            </div>
+            <div class="project-box7">
+                <a href=""><p>查看更多&rarr;</p></a>
+            </div>
+        </div>
+    </div>
+    <!--热门简历区域-->
+    <div id="resume">
+        <div class="resume">
+            <div class="title">
+                <h3>
+                    <i class="layui-icon layui-icon-fire" style="font-size: 30px;"></i>
+                    接包达人
+                    <i class="layui-icon layui-icon-fire" style="font-size: 30px;"></i>
+                </h3>
+            </div>
+            <div class="resume-box1">
+                <div class="picture">
+                    <img src="image/13.jpg" alt="图片加载错误">
+                </div>
+                <div class="name">
+                    <p>林文塨</p>
+                </div>
+                <div class="career">
+                    <P>本科</P>
+                </div>
+                <div class="type">
+                    <p>全职程序员</p>
+                </div>
+                <div class="function">
+                    <p>
+                        <span>网站开发</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;
+                        <span>桌面应用</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;
+                        <span>微信开发</span>
+                    </p>
+                </div>
+            </div>
+            <div class="resume-box2">
+                <div class="picture">
+                    <img src="image/13.jpg" alt="图片加载错误">
+                </div>
+                <div class="name">
+                    <p>杨亚超</p>
+                </div>
+                <div class="career">
+                    <P>博士</P>
+                </div>
+                <div class="type">
+                    <p>企业</p>
+                </div>
+                <div class="function">
+                    <p>
+                        <span>数据采集</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;
+                        <span>嵌入式与职能硬件</span>
+                    </p>
+                </div>
+            </div>
+            <div class="resume-box3">
+                <div class="picture">
+                    <img src="image/13.jpg" alt="图片加载错误">
+                </div>
+                <div class="name">
+                    <p>Jerry</p>
+                </div>
+                <div class="career">
+                    <P>本科</P>
+                </div>
+                <div class="type">
+                    <p>程序员</p>
+                </div>
+                <div class="function">
+                    <p>
+                        <span>网站开发</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;
+                        <span>桌面应用</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;
+                        <span>微信开发</span>
+                    </p>
+                </div>
+            </div>
+            <div class="resume-box4">
+                <div class="picture">
+                    <img src="image/13.jpg" alt="图片加载错误">
+                </div>
+                <div class="name">
+                    <p>Tom</p>
+                </div>
+                <div class="career">
+                    <P>博士</P>
+                </div>
+                <div class="type">
+                    <p>企业</p>
+                </div>
+                <div class="function">
+                    <p>
+                        <span>数据采集</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;
+                        <span>嵌入式与职能硬件</span>
+                    </p>
+                </div>
+            </div>
+            <div class="resume-box5">
+                <a href=""><p>查看更多&rarr;</p></a>
+            </div>
+        </div>
+    </div>
+    <!--页面底部-->
+    <div id="footer">
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-top-left">
+                    <img src="image/11.jpg" alt="图片加载错误">
+                    <p>
+                        志同道合网是一个为了，族起她风今，越4伶报镰。 然酸问面明路最接数世真，
+                        意务这成容才还同命，往维C极算须把如扮。 己需构参亲书争民存间明局号
+                        ，如置族看华A把第雪低。我型才制很斯两。
+                    </p>
+                </div>
+                <div class="footer-top-center">
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="#">联系客服</a></li>
+                            <li><a href="#">入门指南</a></li>
+                            <li><a href="#">资料查询</a></li>
+                            <li><a href="#">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="#">联系客服</a></li>
+                            <li><a href="#">入门指南</a></li>
+                            <li><a href="#">资料查询</a></li>
+                            <li><a href="#">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="#">联系客服</a></li>
+                            <li><a href="#">入门指南</a></li>
+                            <li><a href="#">资料查询</a></li>
+                            <li><a href="#">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-top-right">
+                    <img src="image/12.jpg" alt="图片加载错误">
+                    <div>微信咨询</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                地址：福建省莆田市莆田学院 &nbsp 邮编：351100 &nbsp 电话：
+                400-400-4000 &nbsp 传真：010-8500000 &nbsp 邮箱: ptu.cn
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改简历</title>
+    <link rel="stylesheet" type="text/css" href="CSS/头部和底部.css">
+    <link rel="stylesheet" type="text/css" href="CSS/修改简历.css">
+    <link rel="stylesheet" type="text/css" href="CSS/layui.css">
+    <script type="text/javascript" src="layDate-v5.3.1/laydate/laydate.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="JS/layui.js"></script>
+    <script type="text/javascript" src="JS/修改简历.js"></script>
+</head>
+<body>
+    <!--头部区域-->  
+    <div id="header">
+        <div class="header">
+            <div class="header-left">
+                <a href="首页.html"><img src="图片素材/1.jpg" alt="图片加载错误"></a>
+            </div>
+            <div class="header-bottom1">
+                <ul class="nav">
+                    <li><a href="首页.html">首页</a></li>
+                    <li>
+                        <a href="#">我要创业</a>
+                        <div class="down">
+                            <div class="list">
+                                <a href="">发布项目</a>
+                            </div>
+                            <div class="list">
+                                <a href="">寻找项目</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">寻找道友</a></li>
+                    <li><a href="#">项目管理</a></li>
+                    <li><a href="#">创业资讯</a></li>
+                    <li><a href="#">论坛</a></li>
+                </ul>
+            </div>
+            <div class="header-bottom2">
+                <form action="" method="" class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-input-inline">
+                            <input id="search" type="search" name="search" class="layui-input" placeholder="请输入关键字">
+                        </div>         
+                        <button id="btn-search" type="button" class="layui-btn layui-btn-primary layui-btn-radius">
+                            <i class="layui-icon layui-icon-search" style="font-size: 23px; "></i>        
+                        </button>               
+                    </div>
+                </form>
+            </div>
+            <div class="header-right">
+                <div class="header-right-l">
+                    <img src="图片素材/13.jpg" class="layui-circle" width="50px">
+                </div>
+                <div class="header-right-r">
+                    <!-- 在没有登入状态下的显示 -->
+                    <!-- <ul class="load">
+                        <li><a href="#">登录</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="#">注册</a></li>
+                    </ul> -->
+                    <ul class="load">
+                        <li><a href="个人中心.html">个人中心</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--修改简历-->
+    <div id="correct">
+        <div class="correct">
+            <div class="layui-panel">
+                <form class="layui-form" action="" method="">
+                    <div class="caption">
+                        <h1>修改简历</h1>
+                    </div>
+                    <hr>
+                    <div class="box1">
+                        <div class="title">
+                            <h3>基本信息</h3>
+                        </div>
+                        <div class="picture">
+                            <img src="图片素材/13.jpg" alt="图片加载错误">
+                        </div>
+                        <div class="button">
+                            <button type="button" class="layui-btn layui-btn-lg"><p>上传图片</p></button>
+                        </div>
+                        <div class="name">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">姓名</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">电话</label>
+                                <div class="layui-input-inline">
+                                  <input type="tel" name="phone" required  lay-verify="required" placeholder="请输入电话" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="age">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">年龄</label>
+                                <div class="layui-input-inline">
+                                    <input type="number" min="1" name="age" required  lay-verify="required" placeholder="请输入年龄" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">邮箱</label>
+                                <div class="layui-input-inline">
+                                    <input type="email" name="email" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sex">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">性别</label>
+                                <div class="layui-input-inline">
+                                    <input type="radio" name="sex" value="0" title="男">
+                                    <input type="radio" name="sex" value="1" title="女">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">现居地址</label>
+                                <div class="layui-input-inline">
+                                    <select name="address" lay-verify="">
+                                        <option value="">请选择一个省份</option>
+                                        <option value="01">福建省</option>
+                                        <option value="02">安徽省</option>
+                                        <option value="03">浙江省</option>
+                                        <option value="04">河北省</option>
+                                        <option value="05">广东省</option>
+                                        <option value="06">湖北省</option>
+                                      </select> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="box2">
+                        <div class="title">
+                            <h3>最高学历</h3>
+                        </div>
+                        <div class="time1">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">时间</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" id="time" name="time1" required  lay-verify="required" placeholder="请输入入学时间" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="major">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">专业</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" name="major" required  lay-verify="required" placeholder="请输入专业" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="school">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">学校</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" name="school" required  lay-verify="required" placeholder="请输入学校" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="career">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">学历</label>
+                                <div class="layui-input-inline">
+                                    <select name="career" lay-verify="">
+                                        <option value="">请选择一个学历</option>
+                                        <option value="11">高中</option>
+                                        <option value="12">大专</option>
+                                        <option value="13">本科</option>
+                                        <option value="14">研究生</option>
+                                      </select> 
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                    <hr>
+                    <div class="box3">
+                        <div class="title">
+                            <h3>求职意向</h3>
+                        </div>
+                        <div class="pay">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">期望薪资</label>
+                                <div class="layui-input-inline">
+                                  <input type="number" name="pay" required  lay-verify="required" placeholder="元 / 月" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="function">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">职能</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" name="function" required  lay-verify="required" placeholder="请输入你的职能" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="type">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">工作类型</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" name="type" required  lay-verify="required" placeholder="请输入你的工作类型" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">地点</label>
+                                <div class="layui-input-inline">
+                                    <select name="location" lay-verify="">
+                                        <option value="">请选择一个地点</option>
+                                        <option value="21">河南省</option>
+                                        <option value="22">福建省</option>
+                                        <option value="23">安徽省</option>
+                                        <option value="24">湖北省</option>
+                                        <option value="25">浙江省</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                    <hr>
+                    <div class="box4">
+                        <div class="title">
+                            <h3>工作经验</h3>
+                        </div>
+                        <div class="time2">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">时间</label>
+                                <div class="layui-input-inline">
+                                  <input type="number" name="time2" required  lay-verify="required" placeholder="请输入在职工作时间( / 年)" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="company">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">公司</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" name="company" required  lay-verify="required" placeholder="请输入你的曾效力过的公司" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">岗位</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" name="post" required  lay-verify="required" placeholder="请输入你的担任过的岗位" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">工作描述</label>
+                                <div class="layui-input-inline">
+                                    <textarea name="description" required lay-verify="required" placeholder="请输入详细的工作描述" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="box5">
+                        <button type="button" class="layui-btn layui-btn-lg"><p>确认保存</p></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--页面底部-->
+    <div id="footer">
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-top-left">
+                    <img src="图片素材/11.jpg" alt="图片加载错误">
+                    <p>
+                        志同道合网是一个为了，族起她风今，越4伶报镰。 然酸问面明路最接数世真，
+                        意务这成容才还同命，往维C极算须把如扮。 己需构参亲书争民存间明局号
+                        ，如置族看华A把第雪低。我型才制很斯两。
+                    </p>
+                </div>
+                <div class="footer-top-center">
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-top-right">
+                    <img src="图片素材/12.jpg" alt="图片加载错误">
+                    <div>微信咨询</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                地址：福建省莆田市莆田学院 &nbsp 邮编：351100 &nbsp 电话：
+                400-400-4000 &nbsp 传真：010-8500000 &nbsp 邮箱: ptu.cn
+            </div>
+        </div>
+    </div>
+</body>
+</html>

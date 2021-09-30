@@ -1,0 +1,42 @@
+#manage {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f6f6f6;
+}
+.manage {
+    width: 1400px;
+    margin: 0 auto;
+}
+.manage .layui-panel {
+    margin: 0 auto;
+    width: 900px;
+}
+.manage .layui-panel h1 {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.manage .layui-panel table {
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+.manage  .layui-panel td{
+    border: 1px solid #cccccc;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+.manage  .layui-panel td label,button{
+    margin-right: 15px;
+}
+.manage  .layui-panel th{
+    border: 1px solid #cccccc;
+    height: 40px;
+    font-size: 20px;
+    background-color: #f6f6f6
+}
+.manage  .layui-panel tr:hover{
+    background-color: #FAFAFA;
+}

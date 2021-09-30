@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布项目</title>
+    <link rel="stylesheet" type="text/css" href="CSS/头部和底部.css">
+    <link rel="stylesheet" type="text/css" href="CSS/resume-show.css">
+    <link rel="stylesheet" type="text/css" href="CSS/layui.css">
+    <script type="text/javascript" src="JS/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="JS/layui.js"></script>
+</head>
+<body>
+    <!--头部区域-->  
+    <div id="header">
+        <div class="header">
+            <div class="header-left">
+                <a href="#"><img src="image/1.jpg" alt="图片加载错误"></a>
+            </div>
+            <div class="header-bottom1">
+                <ul class="nav">
+                    <li><a href="/index0">首页</a></li>
+                    <li>
+                        <a href="#">我要创业</a>
+                        <div class="down">
+                            <div class="list">
+                                <a href="/publish">发布项目</a>
+                            </div>
+                            <div class="list">
+                                <a href="/searchIterm">寻找项目</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="/searchResume">寻找道友</a></li>
+                    <li><a href="/personal">项目管理</a></li>
+                    <li><a href="#">创业资讯</a></li>
+                    <li><a href="#">论坛</a></li>
+                </ul>
+            </div>
+            <div class="header-bottom2">
+                <form action="" method="" class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-input-inline">
+                            <input id="search" type="search" name="search" class="layui-input" placeholder="请输入关键字">
+                        </div>         
+                        <button id="btn-search" type="button" class="layui-btn layui-btn-primary layui-btn-radius">
+                            <i class="layui-icon layui-icon-search" style="font-size: 23px; "></i>        
+                        </button>               
+                    </div>
+                </form>
+            </div>
+            <div class="header-right">
+                <div class="header-right-l">
+                    <img th:src="${user.getPicWay()}" class="layui-circle" width="50px">
+                </div>
+                <div class="header-right-r">
+                    <!-- 在没有登入状态下的显示 -->
+                    <!-- <ul class="load">
+                        <li><a href="#">登录</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="#">注册</a></li>
+                    </ul> -->
+                    <ul class="load">
+                        <li><a href="/personal">个人中心</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--我的简历-->
+    <div id="section">
+        <div class="section">
+            <div class="layui-panel" id="content2">
+                <div class="article1">
+                    <div class="picture"><img th:src="${resume.getPicWay()}"></div>
+                    <div class="name"><h1 th:text="${resume.getRealName()}"></h1></div>
+                    <div class="art1-box1">
+                        <ul>
+                            <li class="sex">
+                                <i class="layui-icon layui-icon-friends" style="font-size: 16px;">&nbsp<span th:text="${resume.isokSex()}?'--':${resume.getshowSex()}"></span></i>
+                            </li>
+                            <li class="age">
+                                <i class="layui-icon" style="font-size: 16px;">&nbsp<span th:text="${resume.isokAge()}?'--':${resume.getAge()}"></span>岁</i>
+                            </li>
+                            <li class="location">
+                                <i class="layui-icon" style="font-size: 16px;">&nbsp现居<span th:text="${resume.isokNowaddr()}?'---':${resume.getNowAddr()}"></span></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="art1-box2">
+                        <ul>
+                            <li class="phone">
+                                <i class="layui-icon layui-icon-cellphone-fine" style="font-size: 16px;">&nbsp<span th:text="${resume.getTel()}"></span></i>
+                            </li>
+                            <li class="email">
+                                <i class="layui-icon layui-icon-email" style="font-size: 16px;">&nbsp<span th:text="${resume.getEmail()}"></span></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="article2">
+                    <div class="art2-box1">
+                        <h2>最高学历</h2>
+                    </div>  
+                    <div class="art2-box2">
+                        <ul>
+                            <li>
+                                <p style="font-size: 16px;">学校：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokSchool()}?'---':${resume.getSchool()}"></span></p>
+                            </li>
+                            <li>
+                                <p style="font-size: 16px;">入学时间：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokSchoolDate()}?'---':${resume.getYYMMddDate()}"></span></p>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="art2-box3">
+                        <ul>
+                            <li>
+                                <p style="font-size: 16px;">专业：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokMajor()}?'---':${resume.getMajor()}"></span></p>
+                            </li>
+                            <li>
+                                <p style="font-size: 16px;">学历：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokEducation()}?'---':${resume.getEducation()}"></span></p>
+                            </li>
+                        </ul>
+                    </div>                          
+                </div>
+                <hr>
+                <div class="article3">
+                    <div class="art3-box1">
+                        <h2>合作意向</h2>
+                    </div>  
+                    <div class="art3-box2">
+                        <ul>
+                            <li>
+                                <p style="font-size: 16px;">期望薪资：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokSalary()}?'---':${resume.getSalary()}"></span></p>
+                            </li>
+                            <li>
+                                <p style="font-size: 16px;">工作类型：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokType()}?'---':${resume.getType()}"></span></p>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="art3-box3">
+                        <ul>
+                            <li>
+                                <p style="font-size: 16px;">职能：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokFunction()}?'---':${resume.getFunction()}"></span></p>
+                            </li>
+                            <li>
+                                <p style="font-size: 16px;">地点：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokAddr()}?'---':${resume.getAddr()}"></span></p>
+                            </li>
+                        </ul>
+                    </div>                          
+                </div>
+                <hr>
+                <div class="article4">
+                    <div class="art4-box1">
+                        <h2>工作经验</h2>
+                    </div>  
+                    <div class="art4-box2">
+                        <ul>
+                            <li>
+                                <p style="font-size: 16px;">公司：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokCompany()}?'---':${resume.getCompany()}"></span></p>
+                            </li>
+                            <li>
+                                <p style="font-size: 16px;">在职时间：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokWorkdata()}?'---':${resume.getWorkDate()}"></span></p>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="art4-box3">
+                        <ul>
+                            <li>
+                                <p style="font-size: 16px;">岗位：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokPost()}?'---':${resume.getPost()}" ></span></p>
+                            </li>
+                            <li>
+                                <p style="font-size: 16px;">工作描述：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color: black;" th:text="${resume.isokWorkContent()}?'---':${resume.getWorkContent()}"></span></p>
+                            </li>
+                        </ul>
+                    </div>                          
+                </div>
+                <hr>
+                <div class="article5">
+                    <button type="button" class="layui-btn layui-btn-lg">和他联系</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--页面底部-->
+    <div id="footer">
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-top-left">
+                    <img src="image/11.jpg" alt="图片加载错误">
+                    <p>
+                        志同道合网是一个为了，族起她风今，越4伶报镰。 然酸问面明路最接数世真，
+                        意务这成容才还同命，往维C极算须把如扮。 己需构参亲书争民存间明局号
+                        ，如置族看华A把第雪低。我型才制很斯两。
+                    </p>
+                </div>
+                <div class="footer-top-center">
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-top-right">
+                    <img src="image/12.jpg" alt="图片加载错误">
+                    <div>微信咨询</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                地址：福建省莆田市莆田学院 &nbsp 邮编：351100 &nbsp 电话：
+                400-400-4000 &nbsp 传真：010-8500000 &nbsp 邮箱: ptu.cn
+            </div>
+        </div>
+    </div>
+</body>
+</html>

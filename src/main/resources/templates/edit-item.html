@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布项目</title>
+    <link rel="stylesheet" type="text/css" href="CSS/头部和底部.css">
+    <link rel="stylesheet" type="text/css" href="CSS/发布项目.css">
+    <link rel="stylesheet" type="text/css" href="CSS/layui.css">
+    <link rel="stylesheet" type="text/css" href="CSS/laydate.css">
+    <script type="text/javascript" src="JS/laydate.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="JS/layui.js"></script>
+    <script type="text/javascript" src="JS/发布项目.js"></script>
+</head>
+<body>
+<!--头部区域-->
+<div id="header">
+    <div class="header">
+        <div class="header-left">
+            <a href="首页.html"><img src="image/1.jpg" alt="图片加载错误"></a>
+        </div>
+        <div class="header-bottom1">
+            <ul class="nav">
+                <li><a href="/index0">首页</a></li>
+                <li>
+                    <a href="#">我要创业</a>
+                    <div class="down">
+                        <div class="list">
+                            <a href="/publish">发布项目</a>
+                        </div>
+                        <div class="list">
+                            <a href="/searchIterm">寻找项目</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/searchResume">寻找道友</a></li>
+                <li><a href="/personal">项目管理</a></li>
+                <li><a href="#">创业资讯</a></li>
+                <li><a href="#">论坛</a></li>
+            </ul>
+        </div>
+        <div class="header-bottom2">
+            <form action="" method="" class="layui-form">
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input id="search" type="text" name="search" class="layui-input" placeholder="请输入关键字">
+                    </div>
+                    <button id="btn-search" type="button" class="layui-btn layui-btn-primary layui-btn-radius">
+                        <i class="layui-icon layui-icon-search" style="font-size: 23px; "></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="header-right">
+            <div class="header-right-l">
+                <img th:src="${user.isPic()}?'image/13.jpg':${user.getPicWay()}" class="layui-circle" width="50px">
+            </div>
+            <div class="header-right-r">
+                <!-- 在没有登入状态下的显示 -->
+                <!-- <ul class="load">
+                    <li><a href="#">登录</a></li>
+                    <li id="separator">&#124</li>
+                    <li><a href="#">注册</a></li>
+                </ul> -->
+                <ul class="load">
+                    <li><a href="/personal" >个人中心</a></li>
+                    <li id="separator">&#124</li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--发布项目-->
+<div id="section">
+    <div class="section">
+        <div class="layui-panel">
+            <h1>发布项目</h1>
+            <hr>
+            <form class="layui-form" action="/itermsave0" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="ItermId" th:value="${iterm.getItermId()}">
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="margin-top: 35px;">项目标题</label>
+                    <div class="layui-input-inline">
+                        <input th:value="${iterm.getItermName()}" type="text" name="title" placeholder="请输入标题" required  lay-verify="required" class="layui-input" style="margin-top: 35px;">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">项目类型</label>
+                    <div class="layui-input-inline">
+                        <select name="type" lay-verify="required">
+                            <option th:text="${iterm.getType()}" >请选择项目所属类别</option>
+                            <option value="网站开发">网站开发</option>
+                            <option value="工程设计">工程设计</option>
+                            <option value="桌面应用">桌面应用</option>
+                            <option value="物联网">物联网</option>
+                            <option value="人工智能">人工智能</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">保密设置</label>
+                    <div class="layui-input-block" >
+                        <input type="radio" th:checked="${iterm.getAuthority()==1}" name="secrecy" value="1" title="公开项目">
+                        <input type="radio" th:checked="${iterm.getAuthority()==0}" name="secrecy" value="0" title="保密项目">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">技术要求</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" th:checked="${iterm.isTecknologyin('Web前端开发')}" name="technology" value="Web前端开发" title="Web前端开发">
+                        <input type="checkbox" th:checked="${iterm.isTecknologyin('高级建筑工程师')}" name="technology" value="高级建筑工程师" title="高级建筑工程师">
+                        <input type="checkbox" th:checked="${iterm.isTecknologyin('网络工程师')}" name="technology" value="网络工程师" title="网络工程师">
+                        <input type="checkbox" th:checked="${iterm.isTecknologyin('Python')}" name="technology" value="Python" title="Python">
+                        <input type="checkbox" th:checked="${iterm.isTecknologyin('PHP')}" name="technology" value="PHP" title="PHP">
+                        <input type="checkbox" th:checked="${iterm.isTecknologyin('Android')}" name="technology" value="Android" title="Android">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">开始时间</label>
+                    <div class="layui-input-inline">
+                        <input  th:value="${iterm.getYYMMdd()}" type="text" id="time" name="time" placeholder="yyyy-MM-dd" required  lay-verify="required" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">项目进度</label>
+                    <div class="layui-input-block">
+                        <input type="radio" th:checked="${iterm.getStatus()==1}" name="schedule" value="1" checked title="初创期">
+                        <input type="radio" th:checked="${iterm.getStatus()==2}" name="schedule" value="2" title="种子期">
+                        <input type="radio" th:checked="${iterm.getStatus()==3}" name="schedule" value="3" title="成长期">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">成员数量</label>
+                    <div class="layui-input-inline">
+                        <input th:value="${iterm.getMemberNum()}" type="number" min="1" name="number" placeholder="预计成员数量" required  lay-verify="required" class="layui-input">
+                    </div>
+                </div><div class="layui-form-item">
+                <label class="layui-form-label">所属地区</label>
+                <div class="layui-input-inline">
+                    <select name="city" lay-verify="">
+                        <option th:text="${iterm.getItermAddr()}">请选择项目所属地区</option>
+                        <option value="河南省">河南省</option>
+                        <option value="福建省">福建省</option>
+                        <option value="安徽省">安徽省</option>
+                        <option value="湖北省">湖北省</option>
+                        <option value="浙江省">浙江省</option>
+                    </select>
+                </div>
+            </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">项目预算</label>
+                    <div class="layui-input-inline">
+                        <input th:value="${iterm.getBudget()}" type="number" min="0" step="1000" name="budget" placeholder="请输入项目预算（万元）" required  lay-verify="required" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">项目描述</label>
+                    <div class="layui-input-inline">
+                        <textarea th:text="${iterm.getItermContent()}" name="description" placeholder="请输入详细的需求描述,可以帮助您快速找到合适的开发人员"  class="layui-textarea" style="resize:none; width: 600px; height: 200px;"></textarea>
+                    </div>
+                </div>
+                <!--                    <div class="layui-form-item">-->
+                <!--                        <label class="layui-form-label">email</label>-->
+                <!--                        <div class="layui-input-inline">-->
+                <!--                            <input type="text" name="email" placeholder="请输入email" autocomplete="on" required  lay-verify="required" class="layui-input">-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div class="layui-form-item">-->
+                <!--                        <label class="layui-form-label">联系电话</label>-->
+                <!--                        <div class="layui-input-inline">-->
+                <!--                            <input type="text" name="phone" placeholder="请输入电话" autocomplete="on" required  lay-verify="required" class="layui-input">-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <p style="text-align: center">上传图片<input type="file" name="file"></p>
+                <hr>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <button type="submit" class="layui-btn" id="btn1">
+                            <i class="layui-icon">确认发布</i>
+                        </button>
+                    </div>
+                    <div class="layui-input-inline">
+                        <!--                            <button type="button" class="layui-btn" id="btn2">-->
+                        <!--                                <i class="layui-icon">上传图片</i>-->
+                        <!--                            </button>  -->
+                    </div>
+                    <div class="layui-input-inline">
+                        <!--                            <button type="button" class="layui-btn" id="btn3">-->
+                        <!--                                <i class="layui-icon">上传附件</i>-->
+                        <!--                            </button> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--页面底部-->
+<div id="footer">
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-top-left">
+                <img src="image/11.jpg" alt="图片加载错误">
+                <p>
+                    志同道合网是一个为了，族起她风今，越4伶报镰。 然酸问面明路最接数世真，
+                    意务这成容才还同命，往维C极算须把如扮。 己需构参亲书争民存间明局号
+                    ，如置族看华A把第雪低。我型才制很斯两。
+                </p>
+            </div>
+            <div class="footer-top-center">
+                <div>
+                    <h6>新手指导</h6>
+                    <ul>
+                        <li><a href="">联系客服</a></li>
+                        <li><a href="">入门指南</a></li>
+                        <li><a href="">资料查询</a></li>
+                        <li><a href="">关于我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6>新手指导</h6>
+                    <ul>
+                        <li><a href="">联系客服</a></li>
+                        <li><a href="">入门指南</a></li>
+                        <li><a href="">资料查询</a></li>
+                        <li><a href="">关于我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6>新手指导</h6>
+                    <ul>
+                        <li><a href="">联系客服</a></li>
+                        <li><a href="">入门指南</a></li>
+                        <li><a href="">资料查询</a></li>
+                        <li><a href="">关于我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-top-right">
+                <img src="image/12.jpg" alt="图片加载错误">
+                <div>微信咨询</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            地址：福建省莆田市莆田学院 &nbsp 邮编：351100 &nbsp 电话：
+            400-400-4000 &nbsp 传真：010-8500000 &nbsp 邮箱: ptu.cn
+        </div>
+    </div>
+</div>
+</body>
+</html>

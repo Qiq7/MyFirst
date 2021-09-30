@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manage</title>
+    <link rel="stylesheet" type="text/css" href="CSS/头部和底部.css">
+    <link rel="stylesheet" type="text/css" href="CSS/manage.css">
+    <link rel="stylesheet" type="text/css" href="CSS/layui.css">
+    <script type="text/javascript" src="JS/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="JS/layui.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--头部区域-->  
+    <div id="header">
+        <div class="header">
+            <div class="header-left">
+                <a href="#"><img src="image/1.jpg" alt="图片加载错误"></a>
+            </div>
+            <div class="header-bottom1">
+                <ul class="nav">
+                    <li><a href="/personal">首页</a></li>
+                    <li>
+                        <a href="#">我要创业</a>
+                        <div class="down">
+                            <div class="list">
+                                <a href="/publish">发布项目</a>
+                            </div>
+                            <div class="list">
+                                <a href="/searchIterm">寻找项目</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="/searchResume">寻找道友</a></li>
+                    <li><a href="/personal">项目管理</a></li>
+                    <li><a href="#">创业资讯</a></li>
+                    <li><a href="#">论坛</a></li>
+                </ul>
+            </div>
+            <div class="header-bottom2">
+                <form action="" method="" class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-input-inline">
+                            <input id="search" type="search" name="search" class="layui-input" placeholder="请输入关键字">
+                        </div>         
+                        <button id="btn-search" type="button" class="layui-btn layui-btn-primary layui-btn-radius">
+                            <i class="layui-icon layui-icon-search" style="font-size: 23px; "></i>        
+                        </button>               
+                    </div>
+                </form>
+            </div>
+            <div class="header-right">
+                <div class="header-right-l">
+                    <img th:src="${user.getPicWay()}" class="layui-circle" width="50px">
+                </div>
+                <div class="header-right-r">
+                    <!-- 在没有登入状态下的显示 -->
+                    <!-- <ul class="load">
+                        <li><a href="#">登录</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="#">注册</a></li>
+                    </ul> -->
+                    <ul class="load">
+                        <li><a href="/personal">个人中心</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--管理-->
+    <div id="manage">
+        <div class="manage">
+            <div class="layui-panel">
+                <h1>管理权限</h1>
+                <hr>
+<!--                <form action="" method="">-->
+                <table th:each="manage:${manages}">
+                    <colgroup>
+                        <col span="5" style="width: 100px;">
+                        <col style="width: 300px;">
+                    </colgroup>
+                    <thead>
+                    <tr><th>成员</th><th>性别</th><th>年龄</th><th>学历</th><th>权限</th><th>权限管理</th></tr>
+                    </thead>
+<!--                    <form action="#" method="post">-->
+                        <tbody>
+                        <tr><td th:text="${manage.getMemberName()}"></td><td th:text="${manage.getshowSex()}"></td><td th:text="${manage.getAge()}"></td><td th:text="${manage.getEducation()}"></td><td th:text="${manage.getShowauthority()}"></td>
+                            <td>
+                                <form action="/save3" method="post" style="display: inline">
+                                <input type="radio" name="type" th:checked="${manage.getAuthority()==2}" value="2" title="管理员">
+                                <label>管理员</label>
+                                <input type="radio" name="type" th:checked="${manage.getAuthority()==3}" value="3" title="成员">
+                                <label>成员</label>
+                                <input type="hidden" name="itermId"  th:value="${manage.getItermId()}">
+                                <input type="hidden" name="manageId" th:value="${manage.getManageId()}">
+                                <button type="submit" class="layui-btn layui-btn layui-btn-xs layui-btn-danger">确定</button>
+<!--                                <form action="/save4" method="post">-->
+<!--                                <input type="hidden" name="itermId" th:value="${manage.getItermId()}">-->
+<!--                                <input type="hidden" name="manageId" th:value="${manage.getManageId()}">-->
+<!--                                <button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn-danger">删除</button>-->
+<!--                                </form>-->
+                                </form>
+                                <form method="post" action="/save4" style="display: inline">
+                                    <input type="hidden" name="manageId" th:value="${manage.getManageId()}">
+                                <button type="submit" class="layui-btn layui-btn layui-btn-xs layui-btn-danger">删除</button>
+                                </form>
+                            </td>
+                        </tr>
+<!--                </form>-->
+<!--                        <tr><td>林文塨</td><td>男</td><td>20</td><td>本科</td><td>管理员</td>-->
+<!--                            <td>-->
+<!--                                <input type="radio" name="type"  title="管理员">-->
+<!--                                <label>管理员</label>-->
+<!--                                <input type="radio" name="type"  title="成员">-->
+<!--                                <label>成员</label>-->
+<!--                                <button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn-danger">删除</button>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr><td>杨亚超</td><td>男</td><td>21</td><td>博士</td><td>成员</td>-->
+<!--                            <td>-->
+<!--                                <input type="radio" name="type"  title="管理员">-->
+<!--                                <label>管理员</label>-->
+<!--                                <input type="radio" name="type"  title="成员">-->
+<!--                                <label>成员</label>-->
+<!--                                <button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn-danger">删除</button>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr><td>何佳欣</td><td>女</td><td>19</td><td>本科</td><td>成员</td>-->
+<!--                            <td>-->
+<!--                                <input type="radio" name="type"  title="管理员">-->
+<!--                                <label>管理员</label>-->
+<!--                                <input type="radio" name="type"  title="成员">-->
+<!--                                <label>成员</label>-->
+<!--                                <button type="button" class="layui-btn layui-btn layui-btn-xs  layui-btn-danger">删除</button>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr><td>何佳欣</td><td>女</td><td>19</td><td>本科</td><td>成员</td>-->
+<!--                            <td>-->
+<!--                                <input type="radio" name="type"  title="管理员">-->
+<!--                                <label>管理员</label>-->
+<!--                                <input type="radio" name="type"  title="成员">-->
+<!--                                <label>成员</label>-->
+<!--                                <button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn-danger">删除</button>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr style="background-color: white;"><td colspan="6" style="border: 1px ; height: 80px;">-->
+<!--                            <button style="margin-right: 740px;" type="submit" class="layui-btn ">确定</button>-->
+<!--                        </td></tr>-->
+                        </tbody>
+<!--                        <tr style="background-color: white;"><td colspan="6" style="border: 1px ; height: 80px;">-->
+<!--                            <button style="margin-right: 740px;" type="submit" class="layui-btn ">确定</button>-->
+<!--                        </td></tr>-->
+<!--                    </form>-->
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--页面底部-->
+    <div id="footer">
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-top-left">
+                    <img src="image/11.jpg" alt="图片加载错误">
+                    <p>
+                        志同道合网是一个为了，族起她风今，越4伶报镰。 然酸问面明路最接数世真，
+                        意务这成容才还同命，往维C极算须把如扮。 己需构参亲书争民存间明局号
+                        ，如置族看华A把第雪低。我型才制很斯两。
+                    </p>
+                </div>
+                <div class="footer-top-center">
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-top-right">
+                    <img src="image/12.jpg" alt="图片加载错误">
+                    <div>微信咨询</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                地址：福建省莆田市莆田学院 &nbsp 邮编：351100 &nbsp 电话：
+                400-400-4000 &nbsp 传真：010-8500000 &nbsp 邮箱: ptu.cn
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<body>
+<div>
+    <form action="/toText" method="post" enctype="multipart/form-data">
+    <input type="date" name="data"><br>
+    <input type="file" name="tp"><br>
+     <span th:text="${no}" ></span><br>
+    <input type="submit" name="提交">
+    </form>
+    <ul th:each="t:${page.list}">
+        <li th:text="${t.textId}"></li>
+        <li th:text="${t.textDate}"></li>
+        <li th:text="${t.textContent}"></li>
+    </ul>
+    <a th:if="${!page.isFirst()}" href="/show?b=1">首页</a>
+    <a th:href="${page.isFirst()}?'/show?b=1':'/show?b='+${page.getB()-1}">上一页</a>
+    <a th:href="${page.isLast()}?'/show?b='+${page.getLastPage()}:'/show?b='+${page.getB()+1}">下一页</a>
+    <a th:if="${!page.isLast()}" th:href="@{'/show?b='+${page.getLastPage()}}">尾页</a>
+    </div>
+</body>
+<script type="text/javascript">
+    var ws = new WebSocket();
+</script>
+</html>

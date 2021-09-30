@@ -1,0 +1,123 @@
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+header{
+    height: 84px;
+    border-bottom: 2px solid #018f19;
+}
+/* 右上角首页链接 */
+.homepage{
+    float:right;
+    padding-top: 20px;
+    font-size: 20px;
+}
+/* logo下移 */
+.logo{
+    padding-top: 9px;
+}
+
+.registerarea{
+    height: 600px;
+    border: 0.001px solid #018f19;
+    margin-top: 20px;
+    border-radius: 8px;
+
+}
+.registerarea h3{
+    height: 42px;
+  border-bottom: 1px solid #018f19;
+  background-color: #018f19;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(7, 4, 4);
+    border-radius: 8px;
+}
+.registerarea h3 a{
+  color: rgb(231, 12, 12);
+}
+.login{
+
+    float:right;
+    font-size: 14px;
+}
+.reg-form{
+
+     width: 600px;
+     background-color: rgb(255, 255, 255);
+     margin: 50px  auto 0;
+}
+
+
+/* 文字贴右侧 */
+.reg-form ul li label{
+       display: inline-block;       /* 转成行内块 */
+       width: 150px;
+       text-align: right;
+}
+/* reg-form ul li input */
+.shuru {
+    width: 250px;
+    height: 37px;
+    border: 1px solid #ccc;
+}
+
+/* .error {
+    color: red;
+} */
+.reg-form ul li {
+
+    margin-bottom: 15px;
+}
+
+.safe{
+    padding-left: 240px;
+    color: #817e7e;
+}
+.safe em{
+    padding:0 12px
+}
+.ruo{
+    background-color: red;
+}
+.zhong{
+    background-color: rgb(126, 223, 101);
+}
+.qiang{
+    background-color: rgb(255, 187, 0);
+}
+.agree{
+    padding-left: 130px;
+    padding-top: 10px;
+}
+.agree input{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.xieyi{
+    color: rgb(31, 46, 247);
+}
+
+.over{
+    width: 200px;
+    height: 34px;
+    background-color: #018f19;
+    margin: 30px 0 0 178px ;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+}
+.footer{
+    height: 120px;
+    text-align: center;
+}
+.links{
+    margin-top: 20px;
+    height: 30px;
+}
+.copyright{
+    line-height: 20px;
+}

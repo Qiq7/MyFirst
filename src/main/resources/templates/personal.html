@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="CSS/头部和底部.css">
+    <link rel="stylesheet" type="text/css" href="CSS/个人中心.css">
+    <link rel="stylesheet" type="text/css" href="CSS/layui.css">
+    <script type="text/javascript" src="JS/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="JS/layui.js"></script>
+    <script type="text/javascript" src="JS/个人中心.js"></script>
+</head>
+<body>
+    <!--头部区域-->  
+    <div id="header">
+        <div class="header">
+            <div class="header-left">
+                <a href="#"><img src="image/1.jpg" alt="图片加载错误"></a>
+            </div>
+            <div class="header-bottom1">
+                <ul class="nav">
+                    <li><a href="/index0">首页</a></li>
+                    <li>
+                        <a href="#">我要创业</a>
+                        <div class="down">
+                            <div class="list">
+                                <a href="/publish">发布项目</a>
+                            </div>
+                            <div class="list">
+                                <a href="/searchIterm">寻找项目</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="/searchResume">寻找道友</a></li>
+                    <li><a href="/personal">项目管理</a></li>
+                    <li><a href="#">创业资讯</a></li>
+                    <li><a href="#">论坛</a></li>
+                </ul>
+            </div>
+            <div class="header-bottom2">
+                <form action="" method="" class="layui-form">
+                    <div class="layui-form-item">
+                        <div class="layui-input-inline">
+                            <input id="search" type="text" name="search" class="layui-input" placeholder="请输入关键字">
+                        </div>         
+                        <button id="btn-search" type="button" class="layui-btn layui-btn-primary layui-btn-radius">
+                            <i class="layui-icon layui-icon-search" style="font-size: 23px; "></i>        
+                        </button>               
+                    </div>
+                </form>
+            </div>
+            <div class="header-right">
+                <div class="header-right-l">
+                    <img th:src="${user.getPicWay()}" class="layui-circle" width="50px">
+                </div>
+                <div class="header-right-r">
+                    <!-- 在没有登入状态下的显示 -->
+                    <!-- <ul class="load">
+                        <li><a href="#">登录</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="#">注册</a></li>
+                    </ul> -->
+                    <ul class="load">
+                        <li><a href="#">个人中心</a></li>
+                        <li id="separator">&#124</li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--个人中心-->
+    <div id="section">
+        <div class="section">
+            <div class="layui-panel">
+                <div class="layui-tab layui-tab-brief">
+                    <ul class="layui-tab-title" id="title">
+                        <li id="1" class="layui-this">用户资料</li>
+<!--                        <li>用户资料</li>-->
+                        <li id="2" class="" onclick="dc(this.id)">我的简历</li>
+                        <li id="3" class="" onclick="dc(this.id)">个人信誉</li>
+                        <li id="4" class="" onclick="dc(this.id)">管理项目</li>
+                        <li id="5" class="" onclick="dc(this.id)">我参与的项目</li>
+                        <li id="6" class="" onclick="dc(this.id)">收到的简历</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <!--用户资料-->
+                        <div class="layui-tab-item layui-show" id="content1">
+                            <div class="picture">
+                                <img th:src="${user.isPic()}?'image/13.jpg':${user.getPicWay()}">
+                            </div>
+                            <div class="name">
+                                <p>姓名：&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${user.isRName()}?'---':${user.getRealName()}"></span></p>
+                            </div>
+                            <div class="user-name">
+                                <p>用户名：&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${user.getUsername()}"></span></p>
+                            </div>
+                            <div class="phone">
+                                <p>电话：&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${user.getTel()}"></span></p>
+                            </div>
+                            <div class="date">
+                                <p>生日：&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${user.isBdate()}?'---':${user.getShowDate()}"></span></p>
+                            </div>
+                            <div class="address">
+                                <p>地址：&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${user.isAdr()}?'---':${user.getAddr()}"></span></p>
+                            </div>
+                            <div class="email">
+                                <p>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${user.isEml()}?'---':${user.getEmail()}">2316601146@qq.com</span></p>
+                            </div>
+                            <div class="button">
+                                <a href="/editProfile"><button type="button" class="layui-btn layui-btn-lg">修改</button></a>
+                            </div>
+                        </div>
+                        <!--我的简历-->
+                        <div class="layui-tab-item" id="content2">
+                            <div class="article1">
+                                <div class="picture"><img th:src="${resume.getPicWay()}"></div>
+                                <div class="name"><h1><span th:text="${resume.getRealName()}"></span></h1></div>
+                                <div class="art1-box1">
+                                    <ul>
+                                        <li class="sex">
+                                            <i class="layui-icon layui-icon-friends" style="font-size: 16px;">&nbsp<span th:text="${resume.isokSex()}?'--':${resume.getshowSex()}"></span></i>
+                                        <li class="age">
+                                            <i class="layui-icon" style="font-size: 16px;">&nbsp<span th:text="${resume.isokAge()}?'--':${resume.getAge()}"></span>岁</i>
+                                        </li>
+                                        <li class="location">
+                                            <i class="layui-icon" style="font-size: 16px;">&nbsp现居<span th:text="${resume.isokNowaddr()}?'---':${resume.getNowAddr()}"></span></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="art1-box2">
+                                    <ul>
+                                        <li class="phone">
+                                            <i class="layui-icon layui-icon-cellphone-fine" style="font-size: 16px;">&nbsp<span th:text="${resume.getTel()}"></span></i>
+                                        </li>
+                                        <li class="email">
+                                            <i class="layui-icon layui-icon-email" style="font-size: 16px;">&nbsp<span th:text="${resume.getEmail()}"></span></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="article2">
+                                <div class="art2-box1">
+                                    <h2>最高学历</h2>
+                                </div>
+                                <div class="art2-box2">
+                                    <ul>
+                                        <li>
+                                            <p style="font-size: 16px;">学校：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokSchool()}?'---':${resume.getSchool()}"  style="color: black;"></span></p>
+                                        </li>
+                                        <li>
+                                            <p style="font-size: 16px;">毕业时间：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokSchoolDate()}?'---':${resume.getYYMMddDate()}" style="color: black;"></span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="art2-box3">
+                                    <ul>
+                                        <li>
+                                            <p style="font-size: 16px;">专业：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokMajor()}?'---':${resume.getMajor()}" style="color: black;"></span></p>
+                                        </li>
+                                        <li>
+                                            <p style="font-size: 16px;">学历：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokEducation()}?'---':${resume.getEducation()}" style="color: black;"></span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="article3">
+                                <div class="art3-box1">
+                                    <h2>合作意向</h2>
+                                </div>
+                                <div class="art3-box2">
+                                    <ul>
+                                        <li>
+                                            <p style="font-size: 16px;">期望薪资：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokSalary()}?'---':${resume.getSalary()}" style="color: black;"></span></p>
+                                        </li>
+                                        <li>
+                                            <p style="font-size: 16px;">工作类型：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokType()}?'---':${resume.getType()}" style="color: black;"></span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="art3-box3">
+                                    <ul>
+                                        <li>
+                                            <p style="font-size: 16px;">职能：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokFunction()}?'---':${resume.getFunction()}" style="color: black;"></span></p>
+                                        </li>
+                                        <li>
+                                            <p style="font-size: 16px;">地点：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokAddr()}?'---':${resume.getAddr()}" style="color: black;"></span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="article4">
+                                <div class="art4-box1">
+                                    <h2>工作经验</h2>
+                                </div>
+                                <div class="art4-box2">
+                                    <ul>
+                                        <li>
+                                            <p style="font-size: 16px;">公司：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokCompany()}?'---':${resume.getCompany()}" style="color: black;"></span></p>
+                                        </li>
+                                        <li>
+                                            <p style="font-size: 16px;">在职时间：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokWorkdata()}?'---':${resume.getWorkDate()}" style="color: black;"></span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="art4-box3">
+                                    <ul>
+                                        <li>
+                                            <p style="font-size: 16px;">岗位：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokPost()}?'---':${resume.getPost()}" style="color: black;"></span></p>
+                                        </li>
+                                        <li>
+                                            <p style="font-size: 16px;">工作描述：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span th:text="${resume.isokWorkContent()}?'---':${resume.getWorkContent()}" style="color: black;"></span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="article5">
+                                <a href="/modifyResume"><button type="button" class="layui-btn layui-btn-lg">修改</button></a>
+                            </div>
+                        </div>
+                        <!--个人信誉-->
+                        <div class="layui-tab-item" id="content3">
+                            <div class="picture">
+                                <img src="image/16.jpg">
+                            </div>
+                            <div class="text">
+                                <h2>升级维护中，敬请期待...</h2>
+                            </div>
+                        </div>
+                        <!--管理项目-->
+                        <div class="layui-tab-item" id="content4">
+                            <table th:each="iterm:${iterms}" id="table1">
+                                <tr><td>
+                                    <div class="box-1">
+                                        <div class="picture">
+                                            <img th:src="${iterm.getPicWay()}" alt="图片加载错误">
+                                        </div>
+                                        <div class="caption">
+                                            <h2 th:text="${iterm.getItermName()}"></h2>
+                                        </div>
+                                        <div class="type">
+                                            <p th:text="${iterm.getType()}" style="color: #6495ed;"></p>
+                                        </div>
+                                        <div class="description">
+                                            <p th:text="${iterm.getItermContent()}">
+                                            </p>
+                                        </div>
+                                        <div class="edit">
+                                            <form action="/editIterm" method="post">
+                                             <input type="hidden" name="ItermId" th:value="${iterm.getItermId()}">
+                                            <button type="submit" class="layui-btn layui-btn-sm layui-btn-normal">
+                                                <p>编辑</p>
+                                            </button>
+                                            </form>
+                                        </div>
+                                        <div class="manage">
+                                            <form action="/manage" method="post">
+                                                <input type="hidden" name="itermId" th:value="${iterm.getItermId()}">
+                                            <button type="submit" class="layui-btn layui-btn-sm layui-btn-warm">
+                                                <p>管理</p>
+                                            </button>
+                                            </form>
+                                        </div>
+                                        <div class="delete">
+                                            <form method="post" action="/delIterm">
+                                                <input type="hidden" name="itermId" th:value="${iterm.getItermId()}">
+                                            <button type="submit" class="layui-btn layui-btn-sm layui-btn-danger">
+                                                <a href="#" ><p>删除</p></a>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td></tr>
+<!--                                <tr><td>-->
+<!--                                    <div class="box-2">-->
+<!--                                        <div class="picture">-->
+<!--                                            <img src="image/8.jpg" alt="图片加载错误">-->
+<!--                                        </div>-->
+<!--                                        <div class="caption">-->
+<!--                                            <h2>智慧消防云管理平台</h2>-->
+<!--                                        </div>-->
+<!--                                        <div class="type">-->
+<!--                                            <p style="color: #6495ed;">物联网</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="description">-->
+<!--                                            <p>-->
+<!--                                                这是一款SaaS化的智慧消防平台，实现各类传感器实时监测预警、-->
+<!--                                                智能巡检等功能，可以在火警初期快速发出提醒，及早的发现并解-->
+<!--                                                决各种安全隐患-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="edit">-->
+<!--                                            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">-->
+<!--                                                <p>编辑</p>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                        <div class="manage">-->
+<!--                                            <button type="button" class="layui-btn layui-btn-sm layui-btn-warm">-->
+<!--                                                <p>管理</p>-->
+<!--                                            </button>-->
+
+<!--                                        </div>-->
+<!--                                        <div class="delete">-->
+<!--                                            <button type="button" class="layui-btn layui-btn-sm layui-btn-danger">-->
+<!--                                                <p>删除</p>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+<!--                                <tr><td>-->
+<!--                                    <div class="box-3">-->
+<!--                                        <div class="picture">-->
+<!--                                            <img src="image/9.jpg" alt="图片加载错误">-->
+<!--                                        </div>-->
+<!--                                        <div class="caption">-->
+<!--                                            <h2>UI/VI高端定制设计</h2>-->
+<!--                                        </div>-->
+<!--                                        <div class="type">-->
+<!--                                            <p style="color: #6495ed;">UI设计</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="description">-->
+<!--                                            <p>-->
+<!--                                                大庆运盛网络服务是国内领先的企业全网营销解决方案供应商，致力-->
+<!--                                                于用高品质的一站式服务，传统企业互联网+转型的大量人力成本、时-->
+<!--                                                间成本和经济成本，让科技，更简单。-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="edit">-->
+<!--                                            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal">-->
+<!--                                                <p>编辑</p>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                        <div class="manage">-->
+<!--                                            <button type="button" class="layui-btn layui-btn-sm layui-btn-warm">-->
+<!--                                                <p>管理</p>-->
+<!--                                            </button>-->
+
+<!--                                        </div>-->
+<!--                                        <div class="delete">-->
+<!--                                            <button type="button" class="layui-btn layui-btn-sm layui-btn-danger">-->
+<!--                                                <p>删除</p>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+<!--                                <tr><td>-->
+<!--                                    <div class="box-4">-->
+<!--                                        <i class="layui-icon layui-icon-addition"></i>-->
+<!--                                        <p><a href="/publish">创建项目</a></p>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+                            </table>
+                            <tr><td>
+                                <div class="box-4">
+                                    <i class="layui-icon layui-icon-addition"></i>
+                                    <p><a href="/publish">创建项目</a></p>
+                                </div>
+                            </td></tr>
+                            <div class="page1" id="page1">
+                                <!--分页功能写在JS中-->
+                            </div>
+                        </div>
+                        <!--我参与的项目-->
+                        <div class="layui-tab-item" id="content5">
+                            <table th:each="p:${lp}" id="table1">
+                                <tr><td>
+                                    <div class="project-box1">
+                                        <div class="picture">
+                                            <img th:src="${p.getPicWay()}"  alt="图片加载错误">
+                                        </div>
+                                        <div class="caption">
+                                            <h2 th:text="${p.getItermName()}"></h2>
+                                        </div>
+                                        <div class="type">
+                                            <p th:text="${p.getItermType()}" style="color: #6495ed;"></p>
+                                        </div>
+                                        <div th:if="${p.getLimit() < 3}" class="description">
+                                            <p th:text="${p.getContent()}">
+                                            </p>
+                                        </div>
+                                        <div th:if="${p.getLimit()} >= 3 " class="description">
+                                            <p>暂无权限，需要管理员授权。
+                                            </p>
+                                        </div>
+                                        <div th:if="${p.getStatus()==1}" class="state">
+                                            <p style="color: #009688;">已加入</p>
+                                        </div>
+                                        <div th:if="${p.getStatus()==2}" class="state">
+                                            <p style="color: #009688;">审核中...</p>
+                                        </div>
+                                        <div th:if="${p.getStatus()==1}" class="abandon">
+                                            <p>放弃项目</p>
+                                        </div>
+                                    </div>
+                                </td></tr>
+<!--                                <tr><td>-->
+<!--                                    <div class="project-box1">-->
+<!--                                        <div class="picture">-->
+<!--                                            <img src="image/9.jpg" alt="图片加载错误">-->
+<!--                                        </div>-->
+<!--                                        <div class="caption">-->
+<!--                                            <h2>UI/VI高端定制设计</h2>-->
+<!--                                        </div>-->
+<!--                                        <div class="type">-->
+<!--                                            <p style="color: #6495ed;">UI设计</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="description">-->
+<!--                                            <p>-->
+<!--                                                大庆运盛网络服务是国内领先的企业全网营销解决方案供应商，致力-->
+<!--                                                于用高品质的一站式服务，传统企业互联网+转型的大量人力成本、时-->
+<!--                                                间成本和经济成本，让科技，更简单。-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="state">-->
+<!--                                            <p style="color: #009688;">已加入</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="abandon">-->
+<!--                                            <p>放弃项目</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+<!--                                <tr><td>-->
+<!--                                    <div class="project-box2">-->
+<!--                                        <div class="picture">-->
+<!--                                            <img src="image/8.jpg" alt="图片加载错误">-->
+<!--                                        </div>-->
+<!--                                        <div class="caption">-->
+<!--                                            <h2>智慧消防云管理平台</h2>-->
+<!--                                        </div>-->
+<!--                                        <div class="type">-->
+<!--                                            <p style="color: #6495ed;">物联网</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="description">-->
+<!--                                            <p>-->
+<!--                                                这是一款SaaS化的智慧消防平台，实现各类传感器实时监测预警、-->
+<!--                                                智能巡检等功能，可以在火警初期快速发出提醒，及早的发现并解-->
+<!--                                                决各种安全隐患-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="state">-->
+<!--                                            <p style="color: #009688;">审核中</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="abandon">-->
+<!--                                            <p>放弃项目</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+<!--                                <tr><td>-->
+<!--                                    <div class="project-box3">-->
+<!--                                        <i class="layui-icon layui-icon-add-circle-fine"></i>-->
+<!--                                        <p>寻找项目</p>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+                            </table>
+                            <tr><td>
+                                <div class="project-box3">
+                                    <i class="layui-icon layui-icon-add-circle-fine"></i>
+                                    <p>寻找项目</p>
+                                </div>
+                            </td></tr>
+                            <div class="page2" id="page2">
+                                <!--分页功能写在JS中-->
+                            </div>
+                        </div>
+                        <!--收到的简历-->
+                        <div class="layui-tab-item" id="content6">
+                            <table th:each="getR:${getResume}" id="table2">
+                                <tr><td>
+                                    <div class="resume-box1">
+                                        <div class="picture">
+                                            <img th:src="${getR.getPicWay()}" alt="图片加载错误">
+                                        </div>
+                                        <div class="name">
+                                            <p th:text="${getR.getUserName()}"></p>
+                                        </div>
+                                        <div class="career">
+                                            <P th:text="${getR.getEducation()}"></P>
+                                        </div>
+                                        <div class="type">
+                                            <p th:text="${getR.getType()}"></p>
+                                        </div>
+                                        <div class="function">
+                                            <p th:text="${getR.getFunction()}">
+<!--                                                <span>网站开发</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;-->
+<!--                                                <span>桌面应用</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;-->
+<!--                                                <span>微信开发</span>-->
+                                            </p>
+                                        </div>
+                                        <div class="expect">
+                                            <p>投简项目：&nbsp;&nbsp;&nbsp;<span th:text="${getR.getItermName()}"></span></p>
+                                        </div>
+                                        <div class="agree">
+                                            <form method="post" action="/ok">
+                                                <input type="hidden" name="itermsId" th:value="${getR.getItermsId()}">
+                                            <button type="submit" class="layui-btn layui-btn layui-btn-sm layui-btn-normal">
+                                                同意
+                                            </button>
+                                            </form>
+                                        </div>
+                                        <div class="disagree">
+                                            <form method="post" action="/deny">
+                                                <input type="hidden" name="itermsId" th:value="${getR.getItermsId()}">
+                                            <button type="submit" class="layui-btn layui-btn layui-btn-sm layui-btn-danger">
+                                                拒绝
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td></tr>
+<!--                                <tr><td>-->
+<!--                                    <div class="resume-box1">-->
+<!--                                        <div class="picture">-->
+<!--                                            <img src="image/13.jpg" alt="图片加载错误">-->
+<!--                                        </div>-->
+<!--                                        <div class="name">-->
+<!--                                            <p>林文塨</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="career">-->
+<!--                                            <P>本科</P>-->
+<!--                                        </div>-->
+<!--                                        <div class="type">-->
+<!--                                            <p>全职程序员</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="function">-->
+<!--                                            <p>-->
+<!--                                                <span>网站开发</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;-->
+<!--                                                <span>桌面应用</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;-->
+<!--                                                <span>微信开发</span>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="expect">-->
+<!--                                            <p>投简项目：&nbsp;&nbsp;&nbsp;<span>定制智能网关</span></p>-->
+<!--                                        </div>-->
+<!--                                        <div class="agree">-->
+<!--                                            <button type="button" class="layui-btn layui-btn layui-btn-sm layui-btn-normal">-->
+<!--                                                同意-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                        <div class="disagree">-->
+<!--                                            <button type="button" class="layui-btn layui-btn layui-btn-sm layui-btn-danger">-->
+<!--                                                拒绝-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+<!--                                <tr><td>-->
+<!--                                    <div class="resume-box2">-->
+<!--                                        <div class="picture">-->
+<!--                                            <img src="image/13.jpg" alt="图片加载错误">-->
+<!--                                        </div>-->
+<!--                                        <div class="name">-->
+<!--                                            <p>杨亚超</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="career">-->
+<!--                                            <P>博士</P>-->
+<!--                                        </div>-->
+<!--                                        <div class="type">-->
+<!--                                            <p>企业</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="function">-->
+<!--                                            <p>-->
+<!--                                                <span>数据采集</span>&nbsp;&nbsp;&#124;&nbsp;&nbsp;-->
+<!--                                                <span>嵌入式与职能硬件</span>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="expect">-->
+<!--                                            <p>投简项目：&nbsp;&nbsp;&nbsp;<span>智慧消防云管理平台</span></p>-->
+<!--                                        </div>-->
+<!--                                        <div class="agree">-->
+<!--                                            <button type="button" class="layui-btn layui-btn layui-btn-sm layui-btn-normal">-->
+<!--                                                同意-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                        <div class="disagree">-->
+<!--                                            <button type="button" class="layui-btn layui-btn layui-btn-sm layui-btn-danger">-->
+<!--                                                拒绝-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+<!--                                <tr><td>-->
+<!--                                    <div class="resume-box3">-->
+<!--                                        <i class="layui-icon layui-icon-add-circle-fine"></i>-->
+<!--                                        <p>寻找道友</p>-->
+<!--                                    </div>-->
+<!--                                </td></tr>-->
+                            </table>
+                            <tr><td>
+                                <div class="resume-box3">
+                                    <i class="layui-icon layui-icon-add-circle-fine"></i>
+                                    <p>寻找道友</p>
+                                </div>
+                            </td></tr>
+                            <div class="page3" id="page3">
+                                <!--分页功能写在JS中-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--页面底部-->
+    <div id="footer">
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-top-left">
+                    <img src="image/11.jpg" alt="图片加载错误">
+                    <p>
+                        志同道合网是一个为了，族起她风今，越4伶报镰。 然酸问面明路最接数世真，
+                        意务这成容才还同命，往维C极算须把如扮。 己需构参亲书争民存间明局号
+                        ，如置族看华A把第雪低。我型才制很斯两。
+                    </p>
+                </div>
+                <div class="footer-top-center">
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>新手指导</h6>
+                        <ul>
+                            <li><a href="">联系客服</a></li>
+                            <li><a href="">入门指南</a></li>
+                            <li><a href="">资料查询</a></li>
+                            <li><a href="">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-top-right">
+                    <img src="image/12.jpg" alt="图片加载错误">
+                    <div>微信咨询</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                地址：福建省莆田市莆田学院 &nbsp 邮编：351100 &nbsp 电话：
+                400-400-4000 &nbsp 传真：010-8500000 &nbsp 邮箱: ptu.cn
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    let cklied = "1";
+    let showed = "content1";
+    const co = "content";
+    const a = "layui-this";
+    const b = "layui-show";
+    const c = "layui-tab-item";
+
+    function dc(id) {
+
+        const nId = id;
+        const nCo = ""+co+id;
+
+
+
+        const obj = document.getElementById(cklied);
+        const obj2 = document.getElementById(showed);
+        obj.classList.remove(a);
+        obj2.classList.remove(b);
+
+
+        const objn = document.getElementById(nId);
+        const obj2n = document.getElementById(nCo);
+
+        objn.classList.add(a);
+        obj2n.classList.add(b);
+
+        cklied = nId;
+        showed = nCo;
+
+        console.log(nId);
+        console.log(nCo);
+
+    }
+</script>
+</html>
+
+

@@ -1,0 +1,183 @@
+#section {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f6f6f6;
+}
+.section {
+    width: 1400px;
+    margin: 0 auto;
+}
+.layui-panel {
+    margin: 0 auto;
+    width: 1000px;
+    height: 940px;
+}
+/*我的简历*/
+#content2 .article1 {
+    height: 200px;
+    width: 1000px;
+    position: relative;
+    background-color: #2F4056;
+    color: #e2e2e2;
+}
+#content2 .article1 .picture {
+    width: 120px;
+    height: 120px;
+    margin-top: 39px;
+    margin-left: 50px;
+    position: absolute;
+}
+#content2 .article1 .picture img {
+    width: 120px;
+    height: 120px;
+}
+#content2 .article1 .name {
+    width: 90px;
+    height: 35px;
+    margin-top: 39px;
+    margin-left: 220px;
+    position: absolute;
+}
+#content2 .article1 .art1-box1 {
+    width: 400px;
+    height: 28px;
+    margin-top: 97px;
+    margin-left: 220px;
+    position: absolute;
+}
+#content2 .article1 .art1-box1>ul>li {
+    display: inline;
+    margin-right: 20px;
+}
+#content2 .article1 .art1-box2 {
+    width: 400px;
+    height: 28px;
+    margin-top: 129px;
+    margin-left: 220px;
+    position: absolute;
+}
+#content2 .article1 .art1-box2>ul>li {
+    display: inline;
+    margin-right: 25px;
+}
+/*最高学历*/
+#content2 .article2 {
+    height: 190px;
+    width: 1000px;
+    position: relative;
+}
+#content2 .article2 .art2-box1 {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 50px;
+    height: 40px;
+    width: 100px;
+}
+#content2 .article2 .art2-box1 h2 {
+    font-weight: bold;
+    margin-top: 5px;
+}
+#content2 .article2 .art2-box2 {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 70px;
+    height: 100px;
+    width: 300px;
+}
+#content2 .article2 .art2-box2>ul>li {
+    margin-bottom: 35px;
+}
+#content2 .article2 .art2-box3 {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 70px;
+    height: 100px;
+    width: 300px;
+}
+#content2 .article2 .art2-box3>ul>li {
+    margin-bottom: 35px;
+}
+/*求职意向*/
+#content2 .article3 {
+    height: 190px;
+    width: 1000px;
+    position: relative;
+}
+#content2 .article3 .art3-box1 {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 50px;
+    height: 40px;
+    width: 100px;
+}
+#content2 .article3 .art3-box1 h2 {
+    font-weight: bold;
+    margin-top: 5px;
+}
+#content2 .article3 .art3-box2 {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 70px;
+    height: 100px;
+    width: 300px;
+}
+#content2 .article3 .art3-box2>ul>li {
+    margin-bottom: 35px;
+}
+#content2 .article3 .art3-box3 {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 70px;
+    height: 100px;
+    width: 300px;
+}
+#content2 .article3 .art3-box3>ul>li {
+    margin-bottom: 35px;
+}
+/*工作经验*/
+#content2 .article4 {
+    height: 190px;
+    width: 1000px;
+    position: relative;
+}
+#content2 .article4 .art4-box1 {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 50px;
+    height: 40px;
+    width: 100px;
+}
+#content2 .article4 .art4-box1 h2 {
+    font-weight: bold;
+    margin-top: 5px;
+}
+#content2 .article4 .art4-box2 {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 70px;
+    height: 100px;
+    width: 300px;
+}
+#content2 .article4 .art4-box2>ul>li {
+    margin-bottom: 35px;
+}
+#content2 .article4 .art4-box3 {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 70px;
+    height: 100px;
+    width: 600px;
+}
+#content2 .article4 .art4-box3>ul>li {
+    margin-bottom: 35px;
+}
+/*确认按钮*/
+#content2 .article5 {
+    height: 70px;
+    width: 1000px;
+    position: relative;
+}
+#content2 .article5 button {
+    margin-left: 830px;
+    margin-top: 25px;
+}

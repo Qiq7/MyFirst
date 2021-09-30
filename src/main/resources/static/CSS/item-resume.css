@@ -1,0 +1,711 @@
+/*搜索部分*/
+#box-search {
+  width: 100%;
+  margin: 0 auto;
+  height: 500px;
+  background-image: url('../image/17.jpg');
+}
+.box-search {
+  width: 1400px;
+  margin: 0 auto;
+}
+/*标题部分*/
+.box-search .title{
+  height: 40px;
+  width: 250px;
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin-top: 60px;
+}
+.box-search .title > ul > li{
+  float: left;    
+  font-size: 25px;
+  color: #e2e2e2;
+  margin-right: 40px;
+}
+.box-search .title > ul > li > a{
+
+  color: #e2e2e2;
+}
+/*搜索款2部分*/
+.box-search .search{
+  width: 600px;
+  height: 50px;
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin-top: 120px;
+}
+.box-search .search input{
+  width: 480px;
+  height: 50px;
+}
+.box-search .search button{
+  width: 120px;
+  height: 50px;
+  float: right;
+  background-color: #018f19;
+  font-size: 18px;
+}
+/*分类部分*/
+.classify {
+  width: 1200px;
+  height: 260px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 2em;
+  background-color: #ccc;
+  font-size: 16px;
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin-top: 325px;
+  opacity: 0.7;
+}
+
+.op-item1 {
+  margin-left: 50px;
+  height:70px;
+  width: 1200px;
+  line-height:50px;
+}
+
+.item1-title{
+  float: left;
+  width: 150px;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.map-item-box>li>a.selected {
+  border-radius: 2px;
+  background-color: #5FB878;
+  color: #000000ad;
+  margin-right: 30px;
+}
+.map-item-box>li {
+  display: block;
+  float: left;
+  width: 130px;
+  height: 26px;
+  margin-bottom: 5px;
+}
+/*热门项目区域*/
+#project {
+  width: 100%;
+  /*height: 900px;*/
+  background-color: #F6F6F6;
+}
+.project {
+  width: 1400px;
+  margin: 0 auto;
+  /*height: 950px;*/
+}
+/*第一块*/
+.project .project-box1 {
+  border: 1px solid black;
+  height: 220px;
+  width: 1000px;
+  margin-left: 130px;
+  margin-top: 30px;
+  position: relative;
+  /*position: absolute;*/
+}
+.project .project-box1 .picture {
+  height: 180px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+.project .project-box1 .picture img {
+  width: 250px;
+  height: 180px;
+  border-radius: 10px;
+}
+.project .project-box1 .caption {
+  height: 35px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box1 .type {
+  height: 25px;
+  width: 200px;
+  margin-top: 60px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box1 .description {
+  height: 113px;
+  width: 200px;
+  margin-top: 87px;
+  margin-left: 300px;
+  position: absolute;
+  overflow: hidden;
+}
+/*第二块*/
+.project .project-box2 {
+  border: 1px solid black;
+  height: 220px;
+  width: 530px;
+  float: left;
+  margin-left: 740px;
+  margin-top: 30px;
+  position: absolute;
+}
+.project .project-box2 .picture {
+  height: 180px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+.project .project-box2 .picture img {
+  width: 250px;
+  height: 180px;
+  border-radius: 10px;
+}
+.project .project-box2 .caption {
+  height: 35px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box2 .type {
+  height: 25px;
+  width: 200px;
+  margin-top: 60px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box2 .description {
+  height: 113px;
+  width: 200px;
+  margin-top: 87px;
+  margin-left: 300px;
+  position: absolute;
+  overflow: hidden;
+}
+/*第三块*/
+.project .project-box3 {
+  border: 1px solid black;
+  height: 220px;
+  width: 530px;
+  float: left;
+  margin-left: 130px;
+  margin-top: 280px;
+  position: absolute;
+}
+.project .project-box3 .picture {
+  height: 180px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+.project .project-box3 .picture img {
+  width: 250px;
+  height: 180px;
+  border-radius: 10px;
+}
+.project .project-box3 .caption {
+  height: 35px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box3 .type {
+  height: 25px;
+  width: 200px;
+  margin-top: 60px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box3 .description {
+  height: 113px;
+  width: 200px;
+  margin-top: 87px;
+  margin-left: 300px;
+  position: absolute;
+  overflow: hidden;
+}
+/*第四块*/
+.project .project-box4 {
+  border: 1px solid black;
+  height: 220px;
+  width: 530px;
+  float: left;
+  margin-left: 740px;
+  margin-top: 280px;
+  position: absolute;
+}
+.project .project-box4 .picture {
+  height: 180px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+.project .project-box4 .picture img {
+  width: 250px;
+  height: 180px;
+  border-radius: 10px;
+}
+.project .project-box4 .caption {
+  height: 35px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box4 .type {
+  height: 25px;
+  width: 200px;
+  margin-top: 60px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box4 .description {
+  height: 113px;
+  width: 200px;
+  margin-top: 87px;
+  margin-left: 300px;
+  position: absolute;
+  overflow: hidden;
+}
+/*第五块*/
+.project .project-box5 {
+  border: 1px solid black;
+  height: 220px;
+  width: 530px;
+  float: left;
+  margin-left: 130px;
+  margin-top: 530px;
+  position: absolute;
+}
+.project .project-box5 .picture {
+  height: 180px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+.project .project-box5 .picture img {
+  width: 250px;
+  height: 180px;
+  border-radius: 10px;
+}
+.project .project-box5 .caption {
+  height: 35px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box5 .type {
+  height: 25px;
+  width: 200px;
+  margin-top: 60px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box5 .description {
+  height: 113px;
+  width: 200px;
+  margin-top: 87px;
+  margin-left: 300px;
+  position: absolute;
+  overflow: hidden;
+}
+/*第六块*/
+.project .project-box6 {
+  border: 1px solid black;
+  height: 220px;
+  width: 530px;
+  float: left;
+  margin-left: 740px;
+  margin-top: 530px;
+  position: absolute;
+}
+.project .project-box6 .picture {
+  height: 180px;
+  width: 250px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+.project .project-box6 .picture img {
+  width: 250px;
+  height: 180px;
+  border-radius: 10px;
+}
+.project .project-box6 .caption {
+  height: 35px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box6 .type {
+  height: 25px;
+  width: 200px;
+  margin-top: 60px;
+  margin-left: 300px;
+  position: absolute;
+}
+.project .project-box6 .description {
+  height: 113px;
+  width: 200px;
+  margin-top: 87px;
+  margin-left: 300px;
+  position: absolute;
+  overflow: hidden;
+}
+/*第七块*/
+.project .project-box7 {
+  height: 30px;
+  width: 87px;
+  margin-top: 790px;
+  margin-left: 1185px;
+  position: absolute;
+}
+/*热门简历区域*/
+#resume {
+  width: 100%;
+  /*height: 780px;*/
+  margin: 0px auto;
+  background-color: #F6F6F6;
+}
+.resume {
+  width: 1400px;
+  margin: 0 auto;
+  /*height: 780px;*/
+}
+/*第一块*/
+.resume .resume-box1 {
+  height: 180px;
+  width: 1000px;
+  position: relative;
+  /*position: absolute;*/
+  margin-left: 170px;
+  margin-top: 30px;
+  border: black 1px solid;
+}
+.resume .resume-box1 .picture {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.resume .resume-box1 .picture img{
+  height: 120px;
+  width: 120px;
+}
+.resume .resume-box1 p{
+  font-size: 18px;
+  margin-top: 5px;
+}
+.resume .resume-box1 .name {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 30px;
+}
+.resume .resume-box1 .career {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 340px;
+  margin-top: 30px;
+}
+.resume .resume-box1 .type {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 70px;
+}
+.resume .resume-box1 .function {
+  height: 40px;
+  width: 310px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 110px;
+}
+/*第二块*/
+.resume .resume-box2 {
+  height: 180px;
+  width: 500px;
+  position: absolute;
+  margin-left: 730px;
+  margin-top: 30px;
+  border: black 1px solid;
+}
+.resume .resume-box2 .picture {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.resume .resume-box2 .picture img{
+  height: 120px;
+  width: 120px;
+}
+.resume .resume-box2 p{
+  font-size: 18px;
+  margin-top: 5px;
+}
+.resume .resume-box2 .name {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 30px;
+}
+.resume .resume-box2 .career {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 340px;
+  margin-top: 30px;
+}
+.resume .resume-box2 .type {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 70px;
+}
+.resume .resume-box2 .function {
+  height: 40px;
+  width: 310px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 110px;
+}
+/*第三块*/
+.resume .resume-box3 {
+  height: 180px;
+  width: 500px;
+  position: absolute;
+  margin-left: 170px;
+  margin-top: 250px;
+  border: black 1px solid;
+}
+.resume .resume-box3 .picture {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.resume .resume-box3 .picture img{
+  height: 120px;
+  width: 120px;
+}
+.resume .resume-box3 p{
+  font-size: 18px;
+  margin-top: 5px;
+}
+.resume .resume-box3 .name {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 30px;
+}
+.resume .resume-box3 .career {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 340px;
+  margin-top: 30px;
+}
+.resume .resume-box3 .type {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 70px;
+}
+.resume .resume-box3 .function {
+  height: 40px;
+  width: 310px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 110px;
+}
+/*第四块*/
+.resume .resume-box4 {
+  height: 180px;
+  width: 500px;
+  position: absolute;
+  margin-left: 730px;
+  margin-top: 250px;
+  border: black 1px solid;
+}
+.resume .resume-box4 .picture {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.resume .resume-box4 .picture img{
+  height: 120px;
+  width: 120px;
+}
+.resume .resume-box4 p{
+  font-size: 18px;
+  margin-top: 5px;
+}
+.resume .resume-box4 .name {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 30px;
+}
+.resume .resume-box4 .career {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 340px;
+  margin-top: 30px;
+}
+.resume .resume-box4 .type {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 70px;
+}
+.resume .resume-box4 .function {
+  height: 40px;
+  width: 310px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 110px;
+}
+/*第五块*/
+.resume .resume-box5 {
+  height: 180px;
+  width: 500px;
+  position: absolute;
+  margin-left: 170px;
+  margin-top: 470px;
+  border: black 1px solid;
+}
+.resume .resume-box5 .picture {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.resume .resume-box5 .picture img{
+  height: 120px;
+  width: 120px;
+}
+.resume .resume-box5 p{
+  font-size: 18px;
+  margin-top: 5px;
+}
+.resume .resume-box5 .name {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 30px;
+}
+.resume .resume-box5 .career {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 340px;
+  margin-top: 30px;
+}
+.resume .resume-box5 .type {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 70px;
+}
+.resume .resume-box5 .function {
+  height: 40px;
+  width: 310px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 110px;
+}
+/*第六块*/
+.resume .resume-box6 {
+  height: 180px;
+  width: 500px;
+  position: absolute;
+  margin-left: 730px;
+  margin-top: 470px;
+  border: black 1px solid;
+}
+.resume .resume-box6 .picture {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.resume .resume-box6 .picture img{
+  height: 120px;
+  width: 120px;
+}
+.resume .resume-box6 p{
+  font-size: 18px;
+  margin-top: 5px;
+}
+.resume .resume-box6 .name {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 30px;
+}
+.resume .resume-box6 .career {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 340px;
+  margin-top: 30px;
+}
+.resume .resume-box6 .type {
+  height: 36px;
+  width: 135px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 70px;
+}
+.resume .resume-box6 .function {
+  height: 40px;
+  width: 310px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 110px;
+}
+/*第五块*/
+.resume .resume-box7 {
+  height: 30px;
+  width: 87px;
+  margin-top: 690px;
+  margin-left: 1145px;
+  position: absolute
+}

@@ -1,0 +1,219 @@
+/*导航栏*/
+#header {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+}
+.header {
+    width: 1400px;
+    margin: 0 auto;
+    height: 80px;
+}
+/*LOGO部分*/
+.header-left {
+    float: left;
+    width: 200px;
+    height: 79px;
+}
+.header-left>a>img {
+    margin-top: 8px;
+    width: 200px;
+    height: 65px;
+}
+/*导航部分*/
+.header-bottom1 {
+    float: left;
+    width: 650px;
+    height: 79px;
+}
+.nav {
+    float: left;
+    margin-left: 40px;
+}
+.nav>li {
+    float: left;
+    position: relative;
+}
+.nav>li>a {
+    display: block;
+    line-height: 80px;
+    padding: 0px 17px;
+    font-size: 20px;
+    color: #333;
+    transition: all 0.2s;
+}
+.nav li:hover>a {
+    color: #009ee6;
+    border-top: 3px solid #009ee6;
+}
+/*下拉部分*/
+.down {
+    width: 120px;
+    background-color: #808080;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    top: 79px;
+    left: 0px;
+    display: none;
+    z-index: 2;
+}
+.down .list {
+    height: 50px;
+    line-height: 50px;
+}
+.list a {
+    font-size: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+    color: #ccc;
+}
+.list:hover {
+    background-color: #666
+}
+.list:hover a {
+    color: #fff;
+}
+.list:hover .box {
+    border-color: #009ee6;
+}
+.nav li:hover .down {
+    display: block;
+}
+/*搜索部分*/
+.header-bottom2  {
+    float: left;
+    width: 300px;
+    height: 79px;
+}
+#search {
+    margin-top: 23px;
+    width: 220px;
+}
+#btn-search {
+    margin-top: 23px;
+    margin-left: 30px;
+}
+/*登入部分*/
+.header-right  {
+    float: right;
+    width: 220px;
+    height: 79px;
+}
+.header-right-l  {
+    float: left;
+    width: 80px;
+    height: 79px;
+}
+.header-right-l>img{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.header-right-r  {
+    float: right;
+    width: 130px;
+    height: 79px;
+}
+.load li a{
+    float: left;
+    margin-top:30px;
+    font-size: 14px;
+    color: #333;
+}
+#separator {
+    display: block;
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top:31px;
+    font-size: 14px;
+    color: #333;
+}
+.load li:hover a {
+    color: #009ee6;
+}
+/*页面底部*/
+#foorer {
+    width: 100%;
+    height: 305px;
+    background-color: #fff;
+}
+.footer {
+    width: 1100px;
+    margin: 0 auto;
+    height: 305px;
+}
+/*上左*/
+.footer-top {
+    height: 275px;
+}
+.footer-top-left {
+    float: left;
+    width: 500px;
+    height: 275px;
+    position: relative;
+}
+.footer-top-left>img {
+    width: 130px;
+    position: absolute;
+    top: 30px;
+    left: calc(50% - 130px / 2);
+}
+.footer-top-left>p {
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-right: 20px;
+    font-size: 14px;
+    text-indent: 2em;
+    color: #8492a6;
+}
+/*上中*/
+.footer-top-center {
+    float: left;
+    width: 400px;
+    height: 275px;
+}
+.footer-top-center>div {
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+.footer-top-center>div>h6 {
+        font-size: 18px;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+}
+.footer-top-center>div>ul>li {
+    padding: 10px 5px;
+}
+.footer-top-center>div>ul>li>a {
+    color: #8492a6;
+}
+.footer-top-center>div>ul>li:hover>a {
+    color: #009ee6;
+    text-decoration: underline;
+}
+/*上右*/
+.footer-top-right {
+    width: 120px;
+    height: 275px;
+    float: right;
+}
+.footer-top-right>img {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 70px;    
+}
+.footer-top-right>div {
+    color: #8492a6;
+    text-align: center;
+}
+/*底部*/
+.footer-bottom {
+    height: 28px;
+    text-align: center;
+    line-height: 38px;
+}
+    

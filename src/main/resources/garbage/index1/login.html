@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<!--    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+<!--    <link href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">-->
+</head>
+<a href="/index"><h1>首页</h1></a>
+    <h1>登入</h1>
+    <form action="/toLogin" method="post">
+        手机号<input th:value="${tel}" type="text" name="tel" id="f" onblur="find()"><span id="no"></span></br>
+        密码<input type="password" name="password"></br>
+        <span th:text="${no}"></span><br>
+        记住密码<input type="checkbox" name="remember-me" value="true">
+        <input type="submit" value="登入"><a href="/logon" >注册</a>
+    </form>
+<!--    <form action="logon.html">-->
+<!--        <input type="submit" value="注册">-->
+<!--    </form>-->
+</div>
+</body>
+<script type="text/javascript">
+    function find(){
+        const a = $("#tel1").val();
+        if(a=="")
+        {
+            $("#no").html("手机号不能为空");
+        }else {
+        $.ajax({
+        url:"/find",
+        type:"post",
+        data:{"tel":a},
+        success:function (data) {
+            if (data.toString()=="no"){
+                // const b = "<p>用户名不存在</p>";
+                $("#no").html("用户名不存在");
+                alert(b);
+                // $("#no").innerText("用户名不存在");
+                 }else{
+                $("#no").html("");
+            }
+        }
+    });}
+    }
+</script>
+</html>

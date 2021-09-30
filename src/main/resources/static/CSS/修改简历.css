@@ -1,0 +1,253 @@
+#correct {
+    width: 100%;
+    height: 1350px;
+    background-color: #f6f6f6;
+}
+.correct {
+    height: 1350px;
+    width: 1100px;
+    margin: 0 auto;
+}
+.layui-panel {
+    top: 20px;
+    margin: 0 auto;
+    width: 900px;
+    height: 1280px;
+}
+.layui-panel .caption {
+    height: 60px;
+    width: 900px;
+}
+.layui-panel .caption h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.layui-form label {
+    margin-top: 5px;
+}
+.layui-form input {
+    margin-top: 5px;
+}
+/*基本信息*/
+.layui-panel .box1 {
+    height: 270px;
+    width: 900px;
+}
+.box1 .title {
+    height: 30px;
+    width: 900px;
+    position: absolute;
+}
+.box1 .title h3{
+    margin-top: 5px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+.box1 .picture {
+    height: 130px;
+    width: 130px;
+    margin-top: 50px;
+    margin-left: 40px;
+    position: absolute;
+}
+.box1 .picture img{
+    height: 130px;
+    width: 130px;
+}
+.box1 .button {
+    height: 50px;
+    width: 130px;
+    margin-top: 182px;
+    margin-left: 40px;
+    position: absolute;
+}
+.box1 .button button{
+    height: 50px;
+    width: 130px;
+}
+.box1 .button p{
+    font-size: 20px;
+}
+
+.box1 .name {
+    height: 50px;
+    width: 310px;
+    margin-top: 50px;
+    margin-left: 190px;
+    position: absolute;
+}
+.box1 .phone {
+    height: 50px;
+    width: 310px;
+    margin-top: 50px;
+    margin-left: 500px;
+    position: absolute;
+}
+.box1 .age {
+    height: 50px;
+    width: 310px;
+    margin-top: 115px;
+    margin-left: 190px;
+    position: absolute;
+}
+.box1 .email {
+    height: 50px;
+    width: 310px;
+    margin-top: 115px;
+    margin-left: 500px;
+    position: absolute;
+}
+.box1 .sex {
+    height: 50px;
+    width: 310px;
+    margin-top: 185px;
+    margin-left: 190px;
+    position: absolute;
+}
+.box1 .sex label{
+    margin-top: 0px;
+}
+.box1 .location {
+    height: 50px;
+    width: 310px;
+    margin-top: 180px;
+    margin-left: 500px;
+    position: absolute;
+}
+/*最高学历*/
+.layui-panel .box2 {
+    height: 220px;
+    width: 900px;
+}
+.box2 .title {
+    height: 30px;
+    width: 900px;
+}
+.box2 .title h3{
+    margin-top: 5px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+.box2 .time1{
+    height: 50px;
+    width: 310px;
+    margin-top: 25px;
+    margin-left: 20px;
+    position: absolute;
+}
+.box2 .major{
+    height: 50px;
+    width: 310px;
+    margin-top: 95px;
+    margin-left: 20px;
+    position: absolute;
+}
+.box2 .school{
+    height: 50px;
+    width: 310px;
+    margin-top: 25px;
+    margin-left: 380px;
+    position: absolute;
+}
+.box2 .career{
+    height: 50px;
+    width: 310px;
+    margin-top: 95px;
+    margin-left: 380px;
+    position: absolute;
+}
+/*求职意向*/
+.layui-panel .box3 {
+    height: 220px;
+    width: 900px;
+}
+.box3 .title {
+    height: 30px;
+    width: 900px;
+}
+.box3 .title h3{
+    margin-top: 5px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+.box3 .pay{
+    height: 50px;
+    width: 310px;
+    margin-top: 25px;
+    margin-left: 20px;
+    position: absolute;
+}
+.box3 .function{
+    height: 50px;
+    width: 310px;
+    margin-top: 95px;
+    margin-left: 20px;
+    position: absolute;
+}
+.box3 .type{
+    height: 50px;
+    width: 310px;
+    margin-top: 25px;
+    margin-left: 380px;
+    position: absolute;
+}
+.box3 .location{
+    height: 50px;
+    width: 310px;
+    margin-top: 95px;
+    margin-left: 380px;
+    position: absolute;
+}
+/*工作经验*/
+.layui-panel .box4 {
+    height: 280px;
+    width: 900px;
+}
+.box4 .title {
+    height: 30px;
+    width: 900px;
+}
+.box4 .title h3{
+    margin-top: 5px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+.box4 .time2{
+    height: 50px;
+    width: 310px;
+    margin-top: 25px;
+    margin-left: 20px;
+    position: absolute;
+}
+.box4 .company{
+    height: 50px;
+    width: 310px;
+    margin-top: 95px;
+    margin-left: 20px;
+    position: absolute;
+}
+.box4 .post{
+    height: 50px;
+    width: 310px;
+    margin-top: 165px;
+    margin-left: 20px;
+    position: absolute;
+}
+.box4 .description{
+    height: 50px;
+    width: 310px;
+    margin-top: 25px;
+    margin-left: 380px;
+    position: absolute;
+}
+.box4 .description textarea{
+    height: 190px;
+    width: 350px;
+    resize: none;
+}
+/*确认保存按钮*/
+.box5 button {
+    margin-top: 15px;
+    margin-left: 725px;
+}

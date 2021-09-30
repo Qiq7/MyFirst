@@ -1,0 +1,116 @@
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+header{
+    height: 84px;
+    border-bottom: 2px solid #018f19;
+}
+
+/* logo下移 */
+.logo{
+    padding-top: 9px;
+}
+/* 右上角首页链接 */
+.homepage{
+    float:right;
+    padding-top: 20px;
+    font-size: 20px;
+}
+/* 登录版块面积 */
+.loginarea{
+    height: 400px;
+    border: 0.001px solid #018f19;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.loginarea h3{
+    height: 42px;
+    border-bottom: 1px solid #018f19;
+    background-color: #018f19;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(7, 4, 4);
+    border-radius: 8px;
+}
+.loginarea h3 a{
+    color: rgb(231, 12, 12);
+}
+.reg{
+
+    float:right;
+    font-size: 14px;
+}
+/* 登录表单 */
+.login-form{
+    width: 600px;
+    background-color: rgb(255, 255, 255);
+    margin: 50px  auto 0;
+}
+
+/* 文字贴右侧 */
+.login-form ul li label{
+    display: inline-block;       /* 转成行内块 */
+    width: 175px;
+    text-align: right;
+
+}
+/* reg-form ul li input */
+.shuru {
+    width: 250px;
+    height: 37px;
+    border: 1px solid #ccc;
+}
+
+.login-form ul li {
+    margin-bottom: 15px;
+}
+/* 页尾 */
+.footer{
+    height: 120px;
+    text-align: center;
+}
+.links{
+    margin-top: 20px;
+    height: 30px;
+}
+.copyright{
+    line-height: 20px;
+}
+
+
+
+/* 样式1 */
+/* .loginbtn{
+    background-color: ccc;
+    width: 25%;
+    height: 48px;
+    margin: 35px  240px 0;
+    font-size: 23px;
+    font-weight: 600;
+    color: rgba(60, 139, 60, 0.74);
+    border-radius: 8px;
+    border: 1px solid rgb(228, 228, 228);
+} */
+.loginbtn:hover{
+    background-color: #02ae1e;
+}
+
+
+/* 样式2 */
+.loginbtn{
+    width: 200px;
+    height: 34px;
+    background-color: #018f19;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 30px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

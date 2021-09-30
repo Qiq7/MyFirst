@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <!-- 引入ico图标 -->
+    <link rel="shortcut icon" href="font1/1favicon.ico" />
+    <!-- 引入初始化样式文件 -->
+    <link rel="stylesheet" href="CSS/base.css">
+    <!-- 引入注册页样式 -->
+    <link rel="stylesheet" href="CSS/register.css">
+</head>
+
+<body>
+
+    <div class="w">
+        <!-- 头部区域 -->
+        <header>
+            <div class="logo">
+                <img src="image/logo2.png" alt="">
+                <ul class="homepage">
+                    <li><a href="/index">首页</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- 主体区域 -->
+        <div class="registerarea">
+            <!-- 1.h3 -->
+            <h3>注册新用户
+                <div class="login">我有账号 ，去<a href="/loginl">登录</a>！</div>
+            </h3>
+
+            <!-- 2.feg-form -->
+            <div class="reg-form">
+                <form action="/toLogon" method="post">
+                    <ul>
+                        <li><label for="tel1">姓名：</label><input th:value="${rn}" type="text" name="realName" pattern="^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$" title="7个汉字或14个字符" required class="shuru" id="tel1"
+                                style="outline:none"></li>
+                        <li><label for="tel1">用户名：</label><input th:value="${un}" type="text" name="username" pattern="^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$" title="7个汉字或14个字符" required class="shuru" id="tel11"
+                                style="outline:none"></li>
+                        <li><label for="tel1">手机号：</label><input th:value="${t}" type="tel" name="tel" pattern="^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$" title="11位有效数字" required class="shuru" id="tel111"
+                                style="outline:none" onblur="f()"><span id="no" style="color: red"></span></li>
+                        <li><label for="tel2">邮箱：</label><input th:value="${e}" type="email" name="email" pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$"  required class="shuru" id="tel2"
+                                style="outline:none"></li>
+                        <li><label for="tel3">登录密码：</label><input th:value="${p1}" type="password" name="password1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$" title="包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间" required class="shuru" id="tel3"
+                                style="outline:none"></li>
+                        <li class="safe">安全程度
+                            <em class="ruo">弱</em>
+                            <em class="zhong">中</em>
+                            <em class="qiang">强</em> 
+                        </li>
+                        <li><label for="tel4">确认密码：</label><input th:value="${p2}" type="password" name="password2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$" title="包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间" class="shuru" id="tel4"
+                                                                  style="outline:none"><span style="color: red" th:text="${no}"></span></li>
+                        <li class="agree" style="text-align: center">
+                            <input name="xieyi" type="checkbox" value="1">同意协议并注册
+                            <a href="#" class="xieyi">《"志同道合"线上系统用户协议》</a>
+                        </li>
+                        <li style="text-align: center">
+                            <span  th:text="${xie}" style="color: red"></span>
+                        </li>
+                        <li>
+                            <input type="submit" value="完成注册" class="over">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <!-- 底部区域 -->
+        <div class="footer">
+            <p class="links">关于我们 | 联系我们 | 联系客服 | 发起者入驻 | 创业资讯 | 培训指导</p>
+            <p class="copyright">地址：福建省莆田市莆田学院 邮编：351100 电话：400-400-4000 传真：010-8500000 邮箱: ptu.cn</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function f() {
+        const a = $("#tel111").val();
+        if(a!=""){
+            $.ajax(
+                {
+                    url:"/find",
+                    type:"post",
+                    data:{"tel":a},
+                    success:function (date) {
+                        if (date.toString()=="ok"){
+                            // const b = "<p>用户名不存在</p>";
+                            $("#no").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号已注册");
+                            // alert("hhhh");
+                            // $("#no").innerText("用户名不存在");
+                        }else{
+                            $("#no").html("");
+                        }
+                    }
+        }
+        );
+        }else {
+            $("#no").html("");
+        }
+    }
+</script>
+</html>
